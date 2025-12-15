@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Pub giovanile e informale nel cuore di Martina Franca. Hamburger gourmet, pinse romane, birre artigianali e un'atmosfera unica. Il posto perfetto per una serata con gli amici!">
-    <title>Bellinfusto Menù</title>        * {
+    <title>Menù Ristorante</title>
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -196,7 +197,6 @@
     
     <script>
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVCdwqQen7TOE82kG09jdHmlAXD_WlFry69VYLxPzR0PYuSy62SQqpk490oQhv7C7TvwS0Ho-AxfGj/pub?gid=0&single=true&output=csv';
-                    <p style="text-align: center; color: #D4AF37; font-size: 1.1em; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Pub giovanile e informale nel cuore di Martina Franca. Hamburger gourmet, pinse romane e birre artigianali in un'atmosfera unica!</p>
         
         const allergenMap = {
             '1': 'Glutine',
@@ -314,18 +314,6 @@
         }
         
         function renderMenu(sections) {
-
-                // Funzione per ottenere l'icona in base alla sezione
-                function getSectionIcon(sectionName) {
-                            const icons = {
-                                            'SFIZI E GASTRONOMIA': '🍿️',
-                                            'HAMBURGER': '🍔',
-                                            'PINSE': '🍕',
-                                            'DOLCI': '🍰',
-                                            'BIBITE': '🥤'
-                                                        };
-                            return icons[sectionName] || '🍽️';
-                        }
             let html = '';
             
             sectionOrder.forEach(sectionName => {
@@ -333,7 +321,8 @@
                 if (!products || products.length === 0) return;
                 
                 html += `<div class="section">`;
-        html += `<h2 class="section-title">${getSectionIcon(sectionName)} ${sectionName}</h2>`;                html += `<div class="products-grid">`;
+                html += `<h2 class="section-title">${sectionName}</h2>`;
+                html += `<div class="products-grid">`;
                 
                 products.forEach(product => {
                     html += renderProduct(product);
