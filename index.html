@@ -133,6 +133,35 @@
             background: #D4AF37;
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
+
+         .section-title {
+                cursor: pointer;
+                user-select: none;
+              }
+
+         .section-title::before {
+                content: '▶ ';
+                transition: transform 0.3s ease;
+                display: inline-block;
+                margin-right: 10px;
+              }
+
+         .section-title.active::before {
+                transform: rotate(90deg);
+              }
+
+         .products-grid {
+                max-height: 10000px;
+                overflow: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+                opacity: 1;
+              }
+
+         .products-grid.hidden {
+                max-height: 0;
+                opacity: 0;
+                pointer-events: none;
+              }
         
         .products-grid {
             display: grid;
@@ -500,6 +529,21 @@
             
             document.getElementById('menu').innerHTML = html;
         }
+
+           // Aggiungi listener per accordion
+           const sectionTitles = document.querySelectorAll('.section-title');
+           sectionTitles.forEach(title => {
+                    title.addEventListener('click', function() {
+                               this.classList.toggle('active');
+                               const grid = this.nextElementSibling;
+                               if (grid && grid.classList.contains('products-grid')) {
+                                        grid.classList.toggle('hidden');
+                                          }
+                             });
+                  });
+
+           // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
+           // sectionTitles.forEach(title => title.classList.add('active'));
         
         function renderProduct(product) {
             let priceHtml = `<span class="price-small">€${product.prezzoPiccolo.toFixed(2)}</span>`;
