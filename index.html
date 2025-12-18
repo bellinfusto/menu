@@ -538,20 +538,24 @@
             document.getElementById('menu').innerHTML = html;
 
                // Aggiungi listener per accordion
-               const sectionTitles = document.querySelectorAll('.section-title');
-               sectionTitles.forEach(title => {
-                        title.addEventListener('click', function() {
-                                   this.classList.toggle('active');
-                                   const grid = this.nextElementSibling;
-                                   if (grid && grid.classList.contains('products-grid')) {
-                                                grid.classList.toggle('hidden');
-                                              }
-                                 });
-                      });
+                const sectionTitles = document.querySelectorAll('.section-title');
+                sectionTitles.forEach(title => {
+                    title.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        
+                        // Invece di nextElementSibling (che troverebbe la descrizione), 
+                        // cerchiamo la griglia dentro lo stesso contenitore .section
+                        const grid = this.closest('.section').querySelector('.products-grid');
+                        
+                        if (grid) {
+                            grid.classList.toggle('hidden');
+                        }
+                    });
+                });
             }
         
         // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
-        //sectionTitles.forEach(title => title.classList.add('active'));
+        document.querySelectorAll('.products-grid').forEach(grid => grid.classList.add('hidden'));
         
         function renderProduct(product) {
             let priceHtml = `<span class="price-small">€${product.prezzoPiccolo.toFixed(2)}</span>`;
