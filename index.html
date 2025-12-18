@@ -430,7 +430,12 @@
         
         async function loadMenu() {
             try {
-                const response = await fetch(CSV_URL);
+                // Aggiungiamo un parametro casuale basato sul tempo per evitare la cache
+                const cacheBuster = `&t=${new Date().getTime()}`;
+                const response = await fetch(CSV_URL + cacheBuster);
+                
+                //URL fissa
+                //const response = await fetch(CSV_URL);
                 
                 if (!response.ok) {
                     throw new Error(`Errore HTTP: ${response.status}`);
@@ -526,7 +531,7 @@
                 html += `<h2 class="section-title">${getSectionIcon(sectionName)}${sectionName}</h2>`;
                 html += `<p class="section-desc">${getSectionDescription(sectionName)}</p>`;
                 
-                html += `<div class="products-grid">`;
+                html += `<div class="products-grid hidden">`;
                 
                 products.forEach(product => {
                     html += renderProduct(product);
