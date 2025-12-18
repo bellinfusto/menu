@@ -500,15 +500,15 @@
                         'Hamburger': '🍔', 
                         'Pinse': '🍕', 
                         'Dolci': '🍰', 
-                        'Bibite': '🥛',
                         'Birre alla spina': '🍺',
+                        'Bibite': '🥛',
                         'Birre in bottiglia': '🍾'
                     };
                     return icons[name] ? icons[name] + ' ' : '';
                 }
                 // Funzione per ottenere la descrizione della sezione
                 function getSectionDescription(name) {
-                    const icons = {
+                    const desc = {
                         'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
                         'Hamburger': 'Hamburger con carne di vacche podoliche dell’allevamento biologico "Querceta" - Putignano', 
                         'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
@@ -517,7 +517,7 @@
                         'Bibite': 'Bevande analcoliche BIO',
                         'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
                     };
-                    return icons[name] ? icons[name] + ' ' : '';
+                    return desc[name] ? desc[name] + ' ' : '';
                 }
                 sectionOrder.forEach(sectionName => {
                 const products = sections[sectionName];
