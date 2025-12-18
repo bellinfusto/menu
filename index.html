@@ -530,7 +530,7 @@
                 
                 products.forEach(product => {
                     html += renderProduct(product);
-                });
+   if (grid) {             });
                 
                 html += `</div></div>`;
             });
@@ -542,16 +542,16 @@
                sectionTitles.forEach(title => {
                         title.addEventListener('click', function() {
                                    this.classList.toggle('active');
-                                   const grid = this.nextElementSibling;
-                                   if (grid && grid.classList.contains('products-grid')) {
-                                                grid.classList.toggle('hidden');
-                                              }
+                                   const grid = this.parentElement.querySelector('.products-grid');
+                                    if (grid) {
+                                        grid.classList.toggle('hidden');
+                                        }
                                  });
                       });
             }
         
         // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
-        //sectionTitles.forEach(title => title.classList.add('active'));
+        //document.querySelectorAll('.products-grid').forEach(grid => grid.classList.add('hidden'));
         
         function renderProduct(product) {
             let priceHtml = `<span class="price-small">€${product.prezzoPiccolo.toFixed(2)}</span>`;
