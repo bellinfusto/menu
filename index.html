@@ -314,7 +314,7 @@
         }
         
         .allergen-codes {
-            color: #999*;
+            color: #999;
             font-weight: 600;
         }
         
@@ -549,18 +549,6 @@
                                  });
                       });
             }
-        
-           // Aggiungi listener per accordion
-           const sectionTitles = document.querySelectorAll('.section-title');
-           sectionTitles.forEach(title => {
-                    title.addEventListener('click', function() {
-                               this.classList.toggle('active');
-                               const grid = this.nextElementSibling;
-                               if (grid && grid.classList.contains('products-grid')) {
-                                        grid.classList.toggle('hidden');
-                               }
-                             });
-                  });
         
         // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
         //sectionTitles.forEach(title => title.classList.add('active'));
