@@ -149,6 +149,14 @@
          .section-title.active::before {
                 transform: rotate(90deg);
               }
+        
+         .section-desc {
+              font-size: 0.95rem;
+              color: #ddd;
+              margin-top: 0.2rem;
+              margin-bottom: 0.8rem;
+              font-style: italic;
+            }
 
          .products-grid {
                 max-height: 10000px;
@@ -445,7 +453,7 @@
                 const vegIdx = headers.indexOf('Veg');
                 const veganIdx = headers.indexOf('Vegan');
                 const piccianteIdx = headers.indexOf('Piccante');
-                 const fotoIdx = headers.indexOf('Foto');
+                const fotoIdx = headers.indexOf('Foto');
                 
                 const sections = {};
                 sectionOrder.forEach(sec => {
@@ -498,12 +506,28 @@
                     };
                     return icons[name] ? icons[name] + ' ' : '';
                 }
+                // Funzione per ottenere la descrizione della sezione
+                function getSectionDescription(name) {
+                    const icons = {
+                        'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
+                        'Hamburger': 'Hamburger con carne di vacche podoliche dell'allevamento biologico "Querceta" - Putignano', 
+                        'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
+                        'Dolci': 'I nostri dolci fatti in casa', 
+                        'Birre alla spina': 'Tap list di oggi',
+                        'Bibite': 'Bevande analcoliche BIO',
+                        'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
+                    };
+                    return icons[name] ? icons[name] + ' ' : '';
+                }
                 sectionOrder.forEach(sectionName => {
                 const products = sections[sectionName];
                 if (!products || products.length === 0) return;
                 
                 html += `<div class="section">`;
-                html += `<h2 class="section-title">${getSectionIcon(sectionName)}${sectionName}</h2>`;                html += `<div class="products-grid">`;
+                html += `<h2 class="section-title">${getSectionIcon(sectionName)}${sectionName}</h2>`;
+                html += `<p class="section-desc">${getSectionDescription(sectionName)}</p>
+                
+                html += `<div class="products-grid">`;
                 
                 products.forEach(product => {
                     html += renderProduct(product);
