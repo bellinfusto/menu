@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellinfusto - Menù</title>    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            background-attachment: fixed;
+        }
+        
+        /* Header styling */
+        header {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(45,45,45,0.95) 100%);
+            padding: 40px 20px 50px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 3px solid #D4AF37;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+        
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: #D4AF37;
+            margin-bottom: 15px;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+        
+        h1 img {
+            height: 90px;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        }
+        
+        h2.subtitle {
+            color: #C9A961;
+            font-size: 1.6em;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            font-style: italic;
+        }
+        
+        .description {
+            text-align: center;
+            color: #C9A961;
+            font-size: 1.1em;
+            margin: 20px auto 0;
+            max-width: 800px;
+            line-height: 1.8;
+            padding: 0 20px;
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #D4AF37;
+            font-size: 1.4em;
+            padding: 60px 20px;
+            font-weight: 300;
+        }
+        
+        .error {
+            background: linear-gradient(135deg, #ff6b6b, #c92a2a);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin: 40px 20px;
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            color: #D4AF37;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 120px;
+            height: 2px;
+            background: #D4AF37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+         .section-title {
+                cursor: pointer;
+                user-select: none;
+              }
+
+         .section-title::before {
+                content: '▶ ';
+                transition: transform 0.3s ease;
+                display: inline-block;
+                margin-right: 10px;
+              }
+
+         .section-title.active::before {
+                transform: rotate(90deg);
+              }
+        
+         .section-desc {
+              font-size: 0.85em;
+              color: #D4AF37;
+              margin-bottom: 5px;
+              padding-bottom: 5px;
+            }
+
+         .products-grid {
+                max-height: 10000px;
+                overflow: hidden;
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+                opacity: 1;
+              }
+
+         .products-grid.hidden {
+                max-height: 0;
+                opacity: 0;
+                pointer-events: none;
+              }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        
+        .product {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37, #C9A961, #D4AF37);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .product:hover::before {
+            transform: translateX(0);
+        }
+        
+        .product:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+        
+        .product-name {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #D4AF37;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            flex: 1;
+            line-height: 1.3;
+        }
+        
+        .product-symbols {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        
+        .symbol {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .symbol:hover {
+            transform: scale(1.15);
+        }
+        
+        .symbol.veg {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+        }
+        
+        .symbol.vegan {
+            background: linear-gradient(135deg, #8BC34A, #7CB342);
+        }
+        
+        .symbol.spicy {
+            background: linear-gradient(135deg, #FF5722, #E64A19);
+        }
+        
+        .product-description {
+            font-size: 0.78em;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            flex-grow: 1;
+            font-weight: 400;
+        }
+        
+        .product-price {
+            font-size: 0.8em;
+            font-weight: 400;
+            color: #2d2d2d;
+            margin-bottom: 12px;
+            margin-top: auto;
+        }
+        
+        .price-small {
+            color: #2d2d2d;
+        }
+        
+        .price-large {
+            color: #2d2d2d;
+            margin-left: 10px;
+        }
+        
+        .price-label {
+            font-size: 0.6em;
+            color: #888;
+            display: block;
+            margin-top: 6px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .allergens {
+            font-size: 0.58em;
+            color: #888;
+            padding-top: 10px;
+            border-top: 1px solid #e8e8e8;
+            margin-top: 10px;
+        }
+        
+        .allergen-label {
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .allergen-codes {
+            color: #999;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+            
+            h1 img {
+                height: 60px;
+            }
+            
+            h2.subtitle {
+                font-size: 1.2em;
+            }
+            
+            .description {
+                font-size: 1em;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+                letter-spacing: 1px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 40px 15px;
+            }
+            
+            header {
+                padding: 30px 15px 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6em;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .product-name {
+                font-size: 1.2em;
+            }
+            
+            .product-price {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><img src="https://cdn.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_802/https://www.bellinfusto.it/wp-content/uploads/2016/08/logo_b.png" alt="Bellinfusto" style="height: 150px; vertical-align: middle;"></h1>
+        <h2 style="text-align: center; color: #D4AF37; font-size: 1.8em; margin-top: 10px;">Menù</h2>
+        <p style="text-align: center; color: #D4AF37; font-size: 1.1em; margin: 15px auto; max-width: 700px; line-height: 1.6;">Pub indipendente nel cuore di Ostuni. Birre artigianali selezionate, hamburger con carne biologica locale, pinse romane a lunga maturazione e fritti fatti in casa. Un'esperienza autentica dove la qualità incontra la passione.</p>
+        <div id="menu" class="loading">Caricamento menù...</div>
+    </div>
+    <footer style="background: rgba(0,0,0,0.8); color: #C9A961; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 0.9em; line-height: 1.8; border-top: 2px solid #D4AF37;">
+       <p style="margin: 5px 0; font-weight: 500;">Coperto 1,5€</p>
+       <p style="margin: 5px 0; font-size: 0.85em;">* prodotto surgelato all'origine / prodotto da noi e abbattuto</p>
+    </footer>
+    
+    <script>
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVCdwqQen7TOE82kG09jdHmlAXD_WlFry69VYLxPzR0PYuSy62SQqpk490oQhv7C7TvwS0Ho-AxfGj/pub?gid=0&single=true&output=csv';
+        
+        const sectionOrder = [
+            'Sfizi e gastronomia',
+            'Hamburger',
+            'Pinse',
+            'Dolci',
+            'Birre alla spina',
+            'Bibite',
+            'Birre in bottiglia'
+        ];
+        
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+            const rows = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                
+                const cells = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (let j = 0; j < lines[i].length; j++) {
+                    const char = lines[i][j];
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        cells.push(current.trim().replace(/^"|"$/g, ''));
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                cells.push(current.trim().replace(/^"|"$/g, ''));
+                rows.push(cells);
+            }
+            
+            return { headers, rows };
+        }
+        
+        async function loadMenu() {
+            try {
+                // Aggiungiamo un parametro casuale basato sul tempo per evitare la cache
+                const cacheBuster = `&t=${new Date().getTime()}`;
+                const response = await fetch(CSV_URL + cacheBuster);
+                
+                //URL fissa
+                //const response = await fetch(CSV_URL);
+                
+                if (!response.ok) {
+                    throw new Error(`Errore HTTP: ${response.status}`);
+                }
+                
+                const csvText = await response.text();
+                const { headers, rows } = parseCSV(csvText);
+                
+                if (!rows || rows.length === 0) {
+                    throw new Error('Nessun dato trovato nel foglio');
+                }
+                
+                const sezioneIdx = headers.indexOf('Sezione');
+                const nomeIdx = headers.indexOf('Nome');
+                const descrizioneIdx = headers.indexOf('Descrizione');
+                const prezzoPiccoloIdx = headers.indexOf('Prezzo piccolo');
+                const prezzoGrandeIdx = headers.indexOf('Prezzo grande');
+                const allergeniIdx = headers.indexOf('Allergeni');
+                const vegIdx = headers.indexOf('Veg');
+                const veganIdx = headers.indexOf('Vegan');
+                const piccianteIdx = headers.indexOf('Piccante');
+                const fotoIdx = headers.indexOf('Foto');
+                
+                const sections = {};
+                sectionOrder.forEach(sec => {
+                    sections[sec] = [];
+                });
+                
+                for (let i = 0; i < rows.length; i++) {
+                    const row = rows[i];
+                    if (!row[sezioneIdx]) continue;
+                    
+                    const product = {
+                        sezione: row[sezioneIdx],
+                        nome: row[nomeIdx] || 'Senza nome',
+                        descrizione: row[descrizioneIdx] || '',
+                        prezzoPiccolo: parseFloat(row[prezzoPiccoloIdx]) || 0,
+                        prezzoGrande: row[prezzoGrandeIdx] && row[prezzoGrandeIdx].trim() ? parseFloat(row[prezzoGrandeIdx]) : null,
+                        allergeni: row[allergeniIdx] || '',
+                        veg: parseInt(row[vegIdx]) === 1,
+                        vegan: parseInt(row[veganIdx]) === 1,
+                        spicy: parseInt(row[piccianteIdx]) === 1,
+                        foto: row[fotoIdx] && row[fotoIdx].trim() ? row[fotoIdx].trim() : null
+                    };
+                    
+                    if (sections[product.sezione]) {
+                        sections[product.sezione].push(product);
+                    }
+                }
+                
+                renderMenu(sections);
+                
+            } catch (error) {
+                document.getElementById('menu').innerHTML = `<div class="error">Errore nel caricamento: ${error.message}</div>`;
+                console.error(error);
+            }
+        }
+        
+        function renderMenu(sections) {
+            let html = '';
+            
+                // Funzione per ottenere l'icona della sezione
+                function getSectionIcon(name) {
+                    const icons = {
+                        'Sfizi e gastronomia': '🍿', 
+                        'Hamburger': '🍔', 
+                        'Pinse': '🍕', 
+                        'Dolci': '🍰', 
+                        'Birre alla spina': '🍺',
+                        'Bibite': '🥛',
+                        'Birre in bottiglia': '🍾'
+                    };
+                    return icons[name] ? icons[name] + ' ' : '';
+                }
+                // Funzione per ottenere la descrizione della sezione
+                function getSectionDescription(name) {
+                    const desc = {
+                        'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
+                        'Hamburger': 'Hamburger con carne di vacche podoliche dell’allevamento biologico "Querceta" - Putignano', 
+                        'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
+                        'Dolci': 'I nostri dolci fatti in casa', 
+                        'Birre alla spina': 'Tap list di oggi',
+                        'Bibite': 'Bevande analcoliche BIO',
+                        'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
+                    };
+                    return desc[name] ? desc[name] + ' ' : '';
+                }
+                sectionOrder.forEach(sectionName => {
+                const products = sections[sectionName];
+                if (!products || products.length === 0) return;
+                
+                html += `<div class="section">`;
+                html += `<h2 class="section-title">${getSectionIcon(sectionName)}${sectionName}</h2>`;
+                html += `<p class="section-desc">${getSectionDescription(sectionName)}</p>`;
+                
+                html += `<div class="products-grid hidden">`;
+                
+                products.forEach(product => {
+                    html += renderProduct(product);
+                });
+                
+                html += `</div></div>`;
+            });
+            
+            document.getElementById('menu').innerHTML = html;
+
+               // Aggiungi listener per accordion
+                const sectionTitles = document.querySelectorAll('.section-title');
+                sectionTitles.forEach(title => {
+                    title.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        
+                        // Invece di nextElementSibling (che troverebbe la descrizione), 
+                        // cerchiamo la griglia dentro lo stesso contenitore .section
+                        const desc = this.closest('.section').querySelector('.section-desc');
+                        const grid = this.closest('.section').querySelector('.products-grid');
+                        
+                        if (grid) {
+                            desc.classList.toggle('hidden');
+                            grid.classList.toggle('hidden');
+                        }
+                    });
+                });
+            }
+        
+        // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
+        //document.querySelectorAll('.products-grid').forEach(grid => grid.classList.add('hidden'));
+        
+        function renderProduct(product) {
+            let priceHtml = `<span class="price-small">€${product.prezzoPiccolo.toFixed(2)}</span>`;
+            let priceLabel = '';
+            
+            if (product.prezzoGrande !== null) {
+                priceHtml += ` / <span class="price-large">€${product.prezzoGrande.toFixed(2)}</span>`;
+                priceLabel = `<span class="price-label">100 g / 200 g</span>`;
+            }
+            
+            let symbolsHtml = '';
+            if (product.veg && !product.vegan) {
+                symbolsHtml += '<span class="symbol veg" title="Vegetariano">🌱</span>';
+            }
+            if (product.vegan) {
+                symbolsHtml += '<span class="symbol vegan" title="Vegano">🍃</span>';
+            }
+            if (product.spicy) {
+                symbolsHtml += '<span class="symbol spicy" title="Piccante">🌶</span>';
+            }
+            
+            //let allergensHtml = '';
+            //if (product.allergeni && product.allergeni.length > 0) {
+            //    const allergenNames = product.allergeni.map(code => allergenMap[code] || code).join(', ');
+            //    allergensHtml = `<div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${allergenNames}</span></div>`;
+            //}
+            
+            return `
+                <div class="product">
+                 ${product.foto ? `<div class="product-image"><img src="${product.foto}" alt="${product.nome}" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;"></div>` : ''}
+                  
+                    <div class="product-header">
+                        <span class="product-name">${product.nome}</span>
+                        <div class="product-symbols">${symbolsHtml}</div>
+                    </div>
+                    <p class="product-description">${product.descrizione}</p>
+                    <div class="product-price">
+                        ${priceHtml}
+                        ${priceLabel}
+                    </div>
+                    <div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${product.allergeni}</span></div>
+                </div>
+            `;
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadMenu);
+    </script>
+</body>
+</html>
