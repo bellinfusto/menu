@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+,<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -587,11 +587,10 @@
                 symbolsHtml += '<span class="symbol spicy" title="Piccante">🌶</span>';
             }
             
-            //let allergensHtml = '';
-            //if (product.allergeni && product.allergeni.length > 0) {
-            //    const allergenNames = product.allergeni.map(code => allergenMap[code] || code).join(', ');
-            //    allergensHtml = `<div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${allergenNames}</span></div>`;
-            //}
+            let allergensHtml = '';
+            if (product.allergeni && product.allergeni.length > 0) {
+                allergensHtml = `<div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${product.allergeni}</span></div>`;
+            }
             
             return `
                 <div class="product">
@@ -606,7 +605,7 @@
                         ${priceHtml}
                         ${priceLabel}
                     </div>
-                    <div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${product.allergeni}</span></div>
+                    ${allergensHtml}
                 </div>
             `;
         }
