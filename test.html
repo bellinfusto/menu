@@ -1,4 +1,3 @@
-,<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -723,7 +722,7 @@ async function loadBeers() {
  }
  
  const nomeIdx = headers.indexOf('Nome birra');
- const birificioIdx = headers.indexOf('Birrificio');
+ const birrificio Idx = headers.indexOf('Birrificio');
  const stileIdx = headers.indexOf('Stile');
  const abvIdx = headers.indexOf('Alcol by Vol.');
  const prezzoPiccolaIdx = headers.indexOf('Prezzo Piccola');
@@ -744,7 +743,7 @@ async function loadBeers() {
  const beerRow = `
  <tr>
  <td class="beer-name">${row[nomeIdx] || ''}</td>
- <td>${row[birificioIdx] || ''}</td>
+ <td>${row[birrificio Idx] || ''}</td>
  <td>${row[stileIdx] || ''}</td>
  <td class="beer-abv">${row[abvIdx] || ''}%</td>
  <td class="beer-price">€${prezzoPiccola.toFixed(2)} (${row[misurapiccolaIdx] || ''})</td>
