@@ -467,8 +467,8 @@
  <th>Birrificio</th>
  <th>Stile</th>
  <th>ABV</th>
- <th>Piccola</th>
- <th>Media</th>
+ <th>30 cl</th>
+ <th>40 cl</th>
  </tr>
  </thead>
  <tbody id="beers-tbody">
@@ -745,7 +745,7 @@
                  <td>${row[birrificioIdx] || ''}</td>
                  <td>${row[stileIdx] || ''}</td>
                  <td class="beer-abv">${row[abvIdx] || ''}%</td>
-                 <td class="beer-price">€${prezzoPiccola.toFixed(2)} (${row[misurapiccolaIdx] || ''})</td>
+                 <td class="beer-price">${prezzoPiccola : €${prezzoPiccola.toFixed(2)} || '' }</td>
                  <td class="beer-price">€${prezzoMedia.toFixed(2)} (${row[misuramediaIdx] || ''})</td>
                  </tr>
                  `;
@@ -758,7 +758,7 @@
          }
      }
         
-    document.addEventListener('DOMContentLoaded', () => { loadMenu(); loadBeers(); });
+    document.addEventListener('DOMContentLoaded', () => { loadBeers(); loadMenu(); });
 
     </script>
 </body>
