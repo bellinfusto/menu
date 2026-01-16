@@ -449,7 +449,6 @@
         <h1><img src="https://cdn.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_802/https://www.bellinfusto.it/wp-content/uploads/2016/08/logo_b.png" alt="Bellinfusto" style="height: 150px; vertical-align: middle;"></h1>
         <h2 style="text-align: center; color: #D4AF37; font-size: 1.8em; margin-top: 10px;">Menù</h2>
         <p style="text-align: center; color: #D4AF37; font-size: 1.1em; margin: 15px auto; max-width: 700px; line-height: 1.6;">Pub indipendente nel cuore di Ostuni. Birre artigianali selezionate, hamburger con carne biologica locale, pinse romane a lunga maturazione e fritti fatti in casa. Un'esperienza autentica dove la qualità incontra la passione.</p>
-        <div id="menu" class="loading">Caricamento menù...</div>
         
         <!-- SEZIONE BIRRE -->
         <div class="beers-section">
@@ -471,7 +470,13 @@
                  </table>
              </div>
          </div>
+        <div id="menu" class="loading">Caricamento menù...</div>
     </div>
+    
+    <footer style="background: rgba(0,0,0,0.8); color: #C9A961; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 0.9em; line-height: 1.8; border-top: 2px solid #D4AF37;">
+       <p style="margin: 5px 0; font-weight: 500;">Coperto 1,5€</p>
+       <p style="margin: 5px 0; font-size: 0.85em;">* prodotto surgelato all'origine / prodotto da noi e abbattuto</p>
+    </footer>
     
     <script>
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVCdwqQen7TOE82kG09jdHmlAXD_WlFry69VYLxPzR0PYuSy62SQqpk490oQhv7C7TvwS0Ho-AxfGj/pub?gid=0&single=true&output=csv';
@@ -587,33 +592,34 @@
         function renderMenu(sections) {
             let html = '';
             
-                // Funzione per ottenere l'icona della sezione
-                function getSectionIcon(name) {
-                    const icons = {
-                        'Sfizi e gastronomia': '🍿', 
-                        'Hamburger': '🍔', 
-                        'Pinse': '🍕', 
-                        'Dolci': '🍰', 
-                        'Birre alla spina': '🍺',
-                        'Bibite': '🥛',
-                        'Birre in bottiglia': '🍾'
-                    };
-                    return icons[name] ? icons[name] + ' ' : '';
-                }
-                // Funzione per ottenere la descrizione della sezione
-                function getSectionDescription(name) {
-                    const desc = {
-                        'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
-                        'Hamburger': 'Hamburger con carne di vacche podoliche dell’allevamento biologico "Querceta" - Putignano', 
-                        'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
-                        'Dolci': 'I nostri dolci fatti in casa', 
-                        'Birre alla spina': 'Tap list di oggi',
-                        'Bibite': 'Bevande analcoliche BIO',
-                        'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
-                    };
-                    return desc[name] ? desc[name] + ' ' : '';
-                }
-                sectionOrder.forEach(sectionName => {
+            // Funzione per ottenere l'icona della sezione
+            function getSectionIcon(name) {
+                const icons = {
+                    'Sfizi e gastronomia': '🍿', 
+                    'Hamburger': '🍔', 
+                    'Pinse': '🍕', 
+                    'Dolci': '🍰', 
+                    'Birre alla spina': '🍺',
+                    'Bibite': '🥛',
+                    'Birre in bottiglia': '🍾'
+                };
+                return icons[name] ? icons[name] + ' ' : '';
+            }
+            // Funzione per ottenere la descrizione della sezione
+            function getSectionDescription(name) {
+                const desc = {
+                    'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
+                    'Hamburger': 'Hamburger con carne di vacche podoliche dell’allevamento biologico "Querceta" - Putignano', 
+                    'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
+                    'Dolci': 'I nostri dolci fatti in casa', 
+                    'Birre alla spina': 'Tap list di oggi',
+                    'Bibite': 'Bevande analcoliche BIO',
+                    'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
+                };
+                return desc[name] ? desc[name] + ' ' : '';
+            }
+            
+            sectionOrder.forEach(sectionName => {
                 const products = sections[sectionName];
                 if (!products || products.length === 0) return;
                 
@@ -632,24 +638,24 @@
             
             document.getElementById('menu').innerHTML = html;
 
-               // Aggiungi listener per accordion
-                const sectionTitles = document.querySelectorAll('.section-title');
-                sectionTitles.forEach(title => {
-                    title.addEventListener('click', function() {
-                        this.classList.toggle('active');
-                        
-                        // Invece di nextElementSibling (che troverebbe la descrizione), 
-                        // cerchiamo la griglia dentro lo stesso contenitore .section
-                        const desc = this.closest('.section').querySelector('.section-desc');
-                        const grid = this.closest('.section').querySelector('.products-grid');
-                        
-                        if (grid) {
-                            desc.classList.toggle('hidden');
-                            grid.classList.toggle('hidden');
-                        }
-                    });
+           // Aggiungi listener per accordion
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    // Invece di nextElementSibling (che troverebbe la descrizione), 
+                    // cerchiamo la griglia dentro lo stesso contenitore .section
+                    const desc = this.closest('.section').querySelector('.section-desc');
+                    const grid = this.closest('.section').querySelector('.products-grid');
+                    
+                    if (grid) {
+                        desc.classList.toggle('hidden');
+                        grid.classList.toggle('hidden');
+                    }
                 });
-            }
+            });
+        }
         
         // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
         //document.querySelectorAll('.products-grid').forEach(grid => grid.classList.add('hidden'));
@@ -757,10 +763,5 @@
      
     document.addEventListener('DOMContentLoaded', () => { loadBeers(); loadMenu(); });
     </script>
-
-    <footer style="background: rgba(0,0,0,0.8); color: #C9A961; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 0.9em; line-height: 1.8; border-top: 2px solid #D4AF37;">
-       <p style="margin: 5px 0; font-weight: 500;">Coperto 1,5€</p>
-       <p style="margin: 5px 0; font-size: 0.85em;">* prodotto surgelato all'origine / prodotto da noi e abbattuto</p>
-    </footer>
 </body>
 </html>
