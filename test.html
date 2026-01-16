@@ -450,28 +450,28 @@
         <h2 style="text-align: center; color: #D4AF37; font-size: 1.8em; margin-top: 10px;">Menù</h2>
         <p style="text-align: center; color: #D4AF37; font-size: 1.1em; margin: 15px auto; max-width: 700px; line-height: 1.6;">Pub indipendente nel cuore di Ostuni. Birre artigianali selezionate, hamburger con carne biologica locale, pinse romane a lunga maturazione e fritti fatti in casa. Un'esperienza autentica dove la qualità incontra la passione.</p>
         <div id="menu" class="loading">Caricamento menù...</div>
+        
+        <!-- SEZIONE BIRRE -->
+        <div class="beers-section">
+            <div class="container">
+                <h2 class="beers-title">Birre</h2>
+                <table class="beers-table">
+                    <thead>
+                     <tr>
+                     <th>Nome Birra</th>
+                     <th>Birrificio</th>
+                     <th>Stile</th>
+                     <th>ABV</th>
+                     <th>30 cl</th>
+                     <th>40 cl</th>
+                     </tr>
+                     </thead>
+                     <tbody id="beers-tbody">
+                     </tbody>
+                 </table>
+             </div>
+         </div>
     </div>
-    
- <!-- SEZIONE BIRRE -->
- <div class="beers-section">
- <div class="container">
- <h2 class="beers-title">Birre</h2>
- <table class="beers-table">
- <thead>
- <tr>
- <th>Nome Birra</th>
- <th>Birrificio</th>
- <th>Stile</th>
- <th>ABV</th>
- <th>30 cl</th>
- <th>40 cl</th>
- </tr>
- </thead>
- <tbody id="beers-tbody">
- </tbody>
- </table>
- </div>
- </div>
     
     <script>
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVCdwqQen7TOE82kG09jdHmlAXD_WlFry69VYLxPzR0PYuSy62SQqpk490oQhv7C7TvwS0Ho-AxfGj/pub?gid=0&single=true&output=csv';
