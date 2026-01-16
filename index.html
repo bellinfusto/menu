@@ -1,4 +1,3 @@
-,<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -371,6 +370,78 @@
                 font-size: 1.5em;
             }
         }
+        
+         /* ===== STILE BIRRE - LAVAGNA CON GESSO ===== */
+         .beers-section {
+         background: #2d2d2d;
+         color: #f0e68c;
+         padding: 40px 20px;
+         margin: 60px 0;
+         border-top: 3px solid #D4AF37;
+         border-bottom: 3px solid #D4AF37;
+         }
+        
+         .beers-title {
+         font-size: 1.8em;
+         color: #f0e68c;
+         margin-bottom: 30px;
+         padding-bottom: 15px;
+         border-bottom: 2px solid #f0e68c;
+         text-transform: uppercase;
+         letter-spacing: 3px;
+         font-weight: 700;
+         text-align: center;
+         font-family: 'Segoe UI', sans-serif;
+         }
+        
+         .beers-title::before {
+         content: '🍺 ';
+         margin-right: 10px;
+         }
+        
+         .beers-table {
+         width: 100%;
+         border-collapse: collapse;
+         color: #f0e68c;
+         font-size: 0.95em;
+         }
+        
+         .beers-table thead {
+         border-bottom: 2px solid #f0e68c;
+         }
+        
+         .beers-table th {
+         padding: 15px 10px;
+         text-align: left;
+         font-weight: 700;
+         color: #ffd700;
+         border-bottom: 2px dotted #f0e68c;
+         }
+        
+         .beers-table td {
+         padding: 12px 10px;
+         border-bottom: 1px solid #555;
+         }
+        
+         .beers-table tbody tr:hover {
+         background: rgba(212, 175, 55, 0.1);
+         }
+        
+         .beer-name {
+         font-weight: 600;
+         color: #ffd700;
+         }
+        
+         .beer-abv {
+         color: #f0e68c;
+         font-weight: 500;
+         }
+        
+         .beer-price {
+         color: #90ee90;
+         font-weight: 600;
+         }
+        
     </style>
 </head>
 <body>
@@ -378,8 +449,30 @@
         <h1><img src="https://cdn.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_802/https://www.bellinfusto.it/wp-content/uploads/2016/08/logo_b.png" alt="Bellinfusto" style="height: 150px; vertical-align: middle;"></h1>
         <h2 style="text-align: center; color: #D4AF37; font-size: 1.8em; margin-top: 10px;">Menù</h2>
         <p style="text-align: center; color: #D4AF37; font-size: 1.1em; margin: 15px auto; max-width: 700px; line-height: 1.6;">Pub indipendente nel cuore di Ostuni. Birre artigianali selezionate, hamburger con carne biologica locale, pinse romane a lunga maturazione e fritti fatti in casa. Un'esperienza autentica dove la qualità incontra la passione.</p>
+        
+        <!-- SEZIONE BIRRE -->
+        <div class="beers-section">
+            <div class="container">
+                <h2 class="beers-title">Birre</h2>
+                <table class="beers-table">
+                    <thead>
+                     <tr>
+                     <th>Nome Birra</th>
+                     <th>Birrificio</th>
+                     <th>Stile</th>
+                     <th>ABV</th>
+                     <th>30 cl</th>
+                     <th>40 cl</th>
+                     </tr>
+                     </thead>
+                     <tbody id="beers-tbody">
+                     </tbody>
+                 </table>
+             </div>
+         </div>
         <div id="menu" class="loading">Caricamento menù...</div>
     </div>
+    
     <footer style="background: rgba(0,0,0,0.8); color: #C9A961; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 0.9em; line-height: 1.8; border-top: 2px solid #D4AF37;">
        <p style="margin: 5px 0; font-weight: 500;">Coperto 1,5€</p>
        <p style="margin: 5px 0; font-size: 0.85em;">* prodotto surgelato all'origine / prodotto da noi e abbattuto</p>
@@ -499,33 +592,34 @@
         function renderMenu(sections) {
             let html = '';
             
-                // Funzione per ottenere l'icona della sezione
-                function getSectionIcon(name) {
-                    const icons = {
-                        'Sfizi e gastronomia': '🍿', 
-                        'Hamburger': '🍔', 
-                        'Pinse': '🍕', 
-                        'Dolci': '🍰', 
-                        'Birre alla spina': '🍺',
-                        'Bibite': '🥛',
-                        'Birre in bottiglia': '🍾'
-                    };
-                    return icons[name] ? icons[name] + ' ' : '';
-                }
-                // Funzione per ottenere la descrizione della sezione
-                function getSectionDescription(name) {
-                    const desc = {
-                        'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
-                        'Hamburger': 'Hamburger con carne di vacche podoliche dell’allevamento biologico "Querceta" - Putignano', 
-                        'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
-                        'Dolci': 'I nostri dolci fatti in casa', 
-                        'Birre alla spina': 'Tap list di oggi',
-                        'Bibite': 'Bevande analcoliche BIO',
-                        'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
-                    };
-                    return desc[name] ? desc[name] + ' ' : '';
-                }
-                sectionOrder.forEach(sectionName => {
+            // Funzione per ottenere l'icona della sezione
+            function getSectionIcon(name) {
+                const icons = {
+                    'Sfizi e gastronomia': '🍿', 
+                    'Hamburger': '🍔', 
+                    'Pinse': '🍕', 
+                    'Dolci': '🍰', 
+                    'Birre alla spina': '🍺',
+                    'Bibite': '🥛',
+                    'Birre in bottiglia': '🍾'
+                };
+                return icons[name] ? icons[name] + ' ' : '';
+            }
+            // Funzione per ottenere la descrizione della sezione
+            function getSectionDescription(name) {
+                const desc = {
+                    'Sfizi e gastronomia': 'Il compagno perfetto per una birra al volo, o uno sfizio che ti allieta per tutta la serata! I nostri fritti sono leggeri e gustosi, provali tutti', 
+                    'Hamburger': 'Hamburger con carne di vacche podoliche dell’allevamento biologico "Querceta" - Putignano', 
+                    'Pinse': 'Un’alternativa gustosa alla pizza. Impasto leggerissimo grazie alle 72 ore di maturazione e alla miscela di farine di frumento, riso e soia', 
+                    'Dolci': 'I nostri dolci fatti in casa', 
+                    'Birre alla spina': 'Tap list di oggi',
+                    'Bibite': 'Bevande analcoliche BIO',
+                    'Birre in bottiglia': 'Birre da asporto, in edizione limitata o di grande pregio. Sour, barrique e IRS'
+                };
+                return desc[name] ? desc[name] + ' ' : '';
+            }
+            
+            sectionOrder.forEach(sectionName => {
                 const products = sections[sectionName];
                 if (!products || products.length === 0) return;
                 
@@ -544,73 +638,130 @@
             
             document.getElementById('menu').innerHTML = html;
 
-               // Aggiungi listener per accordion
-                const sectionTitles = document.querySelectorAll('.section-title');
-                sectionTitles.forEach(title => {
-                    title.addEventListener('click', function() {
-                        this.classList.toggle('active');
-                        
-                        // Invece di nextElementSibling (che troverebbe la descrizione), 
-                        // cerchiamo la griglia dentro lo stesso contenitore .section
-                        const desc = this.closest('.section').querySelector('.section-desc');
-                        const grid = this.closest('.section').querySelector('.products-grid');
-                        
-                        if (grid) {
-                            desc.classList.toggle('hidden');
-                            grid.classList.toggle('hidden');
-                        }
-                    });
+           // Aggiungi listener per accordion
+            const sectionTitles = document.querySelectorAll('.section-title');
+            sectionTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    // Invece di nextElementSibling (che troverebbe la descrizione), 
+                    // cerchiamo la griglia dentro lo stesso contenitore .section
+                    const desc = this.closest('.section').querySelector('.section-desc');
+                    const grid = this.closest('.section').querySelector('.products-grid');
+                    
+                    if (grid) {
+                        desc.classList.toggle('hidden');
+                        grid.classList.toggle('hidden');
+                    }
                 });
-            }
+            });
+        }
         
         // Per default, tutte le sezioni sono aperte (puoi rimuovere questa riga per averle chiuse)
         //document.querySelectorAll('.products-grid').forEach(grid => grid.classList.add('hidden'));
         
-        function renderProduct(product) {
-            if (!product.visibile) return '';
-            let priceHtml = `<span class="price-small">€${product.prezzoPiccolo.toFixed(2)}</span>`;
-            let priceLabel = '';
-            
-            if (product.prezzoGrande !== null) {
-                priceHtml += ` / <span class="price-large">€${product.prezzoGrande.toFixed(2)}</span>`;
-                priceLabel = `<span class="price-label">100 g / 200 g</span>`;
-            }
-            
-            let symbolsHtml = '';
-            if (product.veg && !product.vegan) {
-                symbolsHtml += '<span class="symbol veg" title="Vegetariano">🌱</span>';
-            }
-            if (product.vegan) {
-                symbolsHtml += '<span class="symbol vegan" title="Vegano">🍃</span>';
-            }
-            if (product.spicy) {
-                symbolsHtml += '<span class="symbol spicy" title="Piccante">🌶</span>';
-            }
-            
-            let allergensHtml = '';
-            if (product.allergeni && product.allergeni.length > 0) {
-                allergensHtml = `<div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${product.allergeni}</span></div>`;
-            }
-            
-            return `
-                <div class="product">
-                 ${product.foto ? `<div class="product-image"><img src="${product.foto}" alt="${product.nome}" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;"></div>` : ''}
-                  
-                    <div class="product-header">
-                        <span class="product-name">${product.nome}</span>
-                        <div class="product-symbols">${symbolsHtml}</div>
-                    </div>
-                    <p class="product-description">${product.descrizione}</p>
-                    <div class="product-price">
-                        ${priceHtml}
-                        ${priceLabel}
-                    </div>
-                    ${allergensHtml}
-                </div>
-            `;
+         // Caricamento birre
+         const BEERS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRVCdwqQen7TOE82kG09jdHmlAXD_WlFry69VYLxPzR0PYuSy62SQqpk490oQhv7C7TvwS0Ho-AxfGj/pub?gid=574839479&single=true&output=csv';
+         
+         async function loadBeers() {
+             try {
+                 const cacheBuster = `&t=${new Date().getTime()}`;
+                 const response = await fetch(BEERS_CSV_URL + cacheBuster);
+                 
+                 if (!response.ok) {
+                 throw new Error(`Errore HTTP: ${response.status}`);
+             }
+             
+             const csvText = await response.text();
+             const { headers, rows } = parseCSV(csvText);
+             
+             if (!rows || rows.length === 0) {
+                 throw new Error('Nessuna birra trovata');
+             }
+             
+             const nomeIdx = headers.indexOf('Nome birra');
+             const birrificioIdx = headers.indexOf('Birrificio');
+             const stileIdx = headers.indexOf('Stile');
+             const abvIdx = headers.indexOf('Alcol by Vol.');
+             const prezzoPiccolaIdx = headers.indexOf('Prezzo Piccola');
+             const misurapiccolaIdx = headers.indexOf('Misura piccola');
+             const prezzoMediaIdx = headers.indexOf('Prezzo Grande');
+             const misuramediaIdx = headers.indexOf('Misura grande');
+             
+             const tbody = document.getElementById('beers-tbody');
+             tbody.innerHTML = '';
+             
+             for (let i = 0; i < rows.length; i++) {
+                 const row = rows[i];
+                 if (!row[nomeIdx]) continue;
+                 
+                 const prezzoPiccola = parseFloat(row[prezzoPiccolaIdx]) || 0;
+                 const prezzoMedia = parseFloat(row[prezzoMediaIdx]) || 0;
+                 
+                 const beerRow = `
+                 <tr>
+                 <td class="beer-name">${row[nomeIdx] || ''}</td>
+                 <td>${row[birrificioIdx] || ''}</td>
+                 <td>${row[stileIdx] || ''}</td>
+                 <td class="beer-abv">${row[abvIdx] || ''}%</td>
+                 <td class="beer-price">${prezzoPiccola > 0 ? '€' + prezzoPiccola.toFixed(2) : ''}</td>
+                 <td class="beer-price">${prezzoMedia > 0 ? '€' + prezzoMedia.toFixed(2) : ''}</td>
+                 </tr>
+                 `;
+                 tbody.innerHTML += beerRow;
+             }
+         } catch (error) {
+             console.error('Errore caricamento birre:', error);
+             const tbody = document.getElementById('beers-tbody');
+             tbody.innerHTML = '<tr><td colspan="6" style="color: #ff6b6b; text-align: center;">Errore nel caricamento delle birre</td></tr>';
+         }
+     }
+    
+    function renderProduct(product) {
+        if (!product.visibile) return '';
+        let priceHtml = `<span class="price-small">€${product.prezzoPiccolo.toFixed(2)}</span>`;
+        let priceLabel = '';
+        
+        if (product.prezzoGrande !== null) {
+            priceHtml += ` / <span class="price-large">€${product.prezzoGrande.toFixed(2)}</span>`;
+            priceLabel = `<span class="price-label">100 g / 200 g</span>`;
+        }
+           
+        let symbolsHtml = '';
+        if (product.veg && !product.vegan) {
+           symbolsHtml += '<span class="symbol veg" title="Vegetariano">🌱</span>';
+        }
+        if (product.vegan) {
+            symbolsHtml += '<span class="symbol vegan" title="Vegano">🍃</span>';
+        }
+        if (product.spicy) {
+            symbolsHtml += '<span class="symbol spicy" title="Piccante">🌶</span>';
         }
         
-        document.addEventListener('DOMContentLoaded', loadMenu);
+        let allergensHtml = '';
+        if (product.allergeni && product.allergeni.length > 0) {
+            allergensHtml = `<div class="allergens"><span class="allergen-label">Allergeni:</span> <span class="allergen-codes">${product.allergeni}</span></div>`;
+        }
+        
+        return `
+            <div class="product">
+             ${product.foto ? `<div class="product-image"><img src="${product.foto}" alt="${product.nome}" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;"></div>` : ''}
+              
+                <div class="product-header">
+                    <span class="product-name">${product.nome}</span>
+                    <div class="product-symbols">${symbolsHtml}</div>
+                </div>
+                <p class="product-description">${product.descrizione}</p>
+                <div class="product-price">
+                    ${priceHtml}
+                    ${priceLabel}
+                </div>
+                ${allergensHtml}
+            </div>
+        `;
+    }
+     
+    document.addEventListener('DOMContentLoaded', () => { loadBeers(); loadMenu(); });
     </script>
 </body>
 </html>
