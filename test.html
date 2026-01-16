@@ -723,7 +723,8 @@
                  const beerRow = `
                  <tr>
                  <td class="beer-name">${row[nomeIdx] || ''}</td>
-                 <td>${row[birrificioIdx] || ''} - ${row[regionIdx] || ''}</td>
+                 <td>${row[birrificioIdx] || ''}</td>
+                 <td>${row[regionIdx] || ''}</td>
                  <td>${row[stileIdx] || ''}</td>
                  <td class="beer-abv">${row[abvIdx] || ''}%</td>
                  <td class="beer-price">${prezzoPiccola > 0 ? '€' + prezzoPiccola.toFixed(2) : ''}</td>
