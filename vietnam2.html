@@ -56,9 +56,15 @@
             border-radius: 20px;
             transition: all 0.3s;
             font-size: 0.9rem;
+            background: #f5f5f5;
         }
 
         .nav a:hover {
+            background: #DA251D;
+            color: white;
+        }
+
+        .nav a.attivo {
             background: #DA251D;
             color: white;
         }
@@ -262,6 +268,15 @@
             margin-right: 0.5rem;
         }
 
+        /* --- SISTEMA A TAB --- */
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.attivo {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 1.8rem;
@@ -288,28 +303,28 @@
     </div>
 
     <div class="nav">
-        <a href="#voli">✈️ Voli</a>
-        <a href="#giorno1">Giorno 1</a>
-        <a href="#giorno2">Giorno 2</a>
-        <a href="#giorno3">Giorno 3</a>
-        <a href="#giorno4">Giorno 4</a>
-        <a href="#giorno5">Giorno 5</a>
-        <a href="#giorno6">Giorno 6</a>
-        <a href="#giorno7">Giorno 7</a>
-        <a href="#giorno8">Giorno 8</a>
-        <a href="#giorno9">Giorno 9</a>
-        <a href="#giorno10">Giorno 10</a>
-        <a href="#giorno11">Giorno 11</a>
-        <a href="#giorno12">Giorno 12</a>
-        <a href="#giorno13">Giorno 13</a>
-        <a href="#giorno14">Giorno 14</a>
-        <a href="#consigli">💡 Consigli</a>
+        <a href="#" class="tab-link attivo" data-target="voli" onclick="selezionaTab(event)">✈️ Voli</a>
+        <a href="#" class="tab-link" data-target="giorno1" onclick="selezionaTab(event)">Giorno 1</a>
+        <a href="#" class="tab-link" data-target="giorno2" onclick="selezionaTab(event)">Giorno 2</a>
+        <a href="#" class="tab-link" data-target="giorno3" onclick="selezionaTab(event)">Giorno 3</a>
+        <a href="#" class="tab-link" data-target="giorno4" onclick="selezionaTab(event)">Giorno 4</a>
+        <a href="#" class="tab-link" data-target="giorno5" onclick="selezionaTab(event)">Giorno 5</a>
+        <a href="#" class="tab-link" data-target="giorno6" onclick="selezionaTab(event)">Giorno 6</a>
+        <a href="#" class="tab-link" data-target="giorno7" onclick="selezionaTab(event)">Giorno 7</a>
+        <a href="#" class="tab-link" data-target="giorno8" onclick="selezionaTab(event)">Giorno 8</a>
+        <a href="#" class="tab-link" data-target="giorno9" onclick="selezionaTab(event)">Giorno 9</a>
+        <a href="#" class="tab-link" data-target="giorno10" onclick="selezionaTab(event)">Giorno 10</a>
+        <a href="#" class="tab-link" data-target="giorno11" onclick="selezionaTab(event)">Giorno 11</a>
+        <a href="#" class="tab-link" data-target="giorno12" onclick="selezionaTab(event)">Giorno 12</a>
+        <a href="#" class="tab-link" data-target="giorno13" onclick="selezionaTab(event)">Giorno 13</a>
+        <a href="#" class="tab-link" data-target="giorno14" onclick="selezionaTab(event)">Giorno 14</a>
+        <a href#" class="tab-link" data-target="consigli" onclick="selezionaTab(event)">💡 Consigli</a>
     </div>
 
     <div class="container">
 
         <!-- SEZIONE VOLI -->
-        <div id="voli" class="flight-section">
+        <div id="voli" class="flight-section tab-pane attivo">
             <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">✈️ DETTAGLI VOLI</h2>
 
             <div class="flight-card">
@@ -389,10 +404,13 @@
         </div>
 
         <!-- GIORNO 1 -->
-        <div id="giorno1" class="section">
+        <div id="giorno1" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 1 - Sabato 7 Marzo</h2>
                 <p>📍 Arrivo ad Hanoi</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Arrivo | 🏨 Hotel 4* | 🌙 Serata libera
+                </p>
             </div>
 
             <div class="map-container">
@@ -410,6 +428,15 @@
                         <li>Check-in hotel 4 stelle ad Hanoi</li>
                         <li>Tempo per riposare dal lungo viaggio</li>
                         <li>Prima impressione della capitale vietnamita</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🧭</span>Prime Cose da Fare</h4>
+                    <ul>
+                        <li>Cambiare un po' di valuta in dong vietnamiti (VND)</li>
+                        <li>Acquistare SIM locale o verificare roaming</li>
+                        <li>Bere tanta acqua per reidratarsi dal volo</li>
                     </ul>
                 </div>
 
@@ -438,10 +465,13 @@
         </div>
 
         <!-- GIORNO 2 -->
-        <div id="giorno2" class="section">
+        <div id="giorno2" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 2 - Domenica 8 Marzo</h2>
                 <p>📍 Alla scoperta di Hanoi</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Cultura | 🚶 Tour città | 🍜 Street food
+                </p>
             </div>
 
             <div class="map-container">
@@ -504,10 +534,13 @@
         </div>
 
         <!-- GIORNO 3 -->
-        <div id="giorno3" class="section">
+        <div id="giorno3" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 3 - Lunedì 9 Marzo</h2>
                 <p>📍 Mai Chau - Tra risaie e villaggi Thai</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Natura | 🚗 3-4h trasferimento | 🍽️ Pranzo in famiglia Thai
+                </p>
             </div>
 
             <div class="map-container">
@@ -567,10 +600,13 @@
         </div>
 
         <!-- GIORNO 4 -->
-        <div id="giorno4" class="section">
+        <div id="giorno4" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 4 - Martedì 10 Marzo</h2>
                 <p>📍 Ninh Binh - La "Halong Bay terrestre"</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Natura | 🛶 Sampan tra faraglioni | 🏨 Hotel 4*
+                </p>
             </div>
 
             <div class="map-container">
@@ -630,10 +666,13 @@
         </div>
 
         <!-- GIORNO 5 -->
-        <div id="giorno5" class="section">
+        <div id="giorno5" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 5 - Mercoledì 11 Marzo</h2>
                 <p>📍 Crociera nella Baia di Lan Ha</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Natura | 🚢 Crociera 4* | 🍽️ Pasti inclusi a bordo
+                </p>
             </div>
 
             <div class="map-container">
@@ -697,10 +736,13 @@
         </div>
 
         <!-- GIORNO 6 -->
-        <div id="giorno6" class="section">
+        <div id="giorno6" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 6 - Giovedì 12 Marzo</h2>
                 <p>📍 Dalla baia a Hue (con volo interno)</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Transito | ✈️ Volo interno | 🏙️ Scoperta di Hue
+                </p>
             </div>
 
             <div class="map-container">
@@ -752,10 +794,13 @@
         </div>
 
         <!-- GIORNO 7 -->
-        <div id="giorno7" class="section">
+        <div id="giorno7" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 7 - Venerdì 13 Marzo</h2>
                 <p>📍 Hue - Tra templi e storia imperiale</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Cultura | 🏰 Cittadella Imperiale | 🚤 Fiume dei Profumi
+                </p>
             </div>
 
             <div class="map-container">
@@ -819,10 +864,13 @@
         </div>
 
         <!-- GIORNO 8 -->
-        <div id="giorno8" class="section">
+        <div id="giorno8" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 8 - Sabato 14 Marzo</h2>
                 <p>📍 Da Hue a Hoi An via Passo delle Nuvole</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 On the road | ⛰️ Hai Van Pass | 🏮 Hoi An by night
+                </p>
             </div>
 
             <div class="map-container">
@@ -884,10 +932,13 @@
         </div>
 
         <!-- GIORNO 9 -->
-        <div id="giorno9" class="section">
+        <div id="giorno9" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 9 - Domenica 15 Marzo</h2>
                 <p>📍 My Son e centro storico di Hoi An</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Cultura | 🛕 Templi Cham | 🏮 Centro storico
+                </p>
             </div>
 
             <div class="map-container">
@@ -952,10 +1003,13 @@
         </div>
 
         <!-- GIORNO 10 -->
-        <div id="giorno10" class="section">
+        <div id="giorno10" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 10 - Lunedì 16 Marzo</h2>
                 <p>📍 Beach Day a Cua Dai</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Relax | 🏖️ Resort sul mare | 🏝️ Escursioni opzionali
+                </p>
             </div>
 
             <div class="map-container">
@@ -1015,10 +1069,13 @@
         </div>
 
         <!-- GIORNO 11 -->
-        <div id="giorno11" class="section">
+        <div id="giorno11" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 11 - Martedì 17 Marzo</h2>
                 <p>📍 Da Hoi An a Saigon</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Transito | ✈️ Da Nang → Saigon | 🌃 Prima sera in metropoli
+                </p>
             </div>
 
             <div class="map-container">
@@ -1078,10 +1135,13 @@
         </div>
 
         <!-- GIORNO 12 -->
-        <div id="giorno12" class="section">
+        <div id="giorno12" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 12 - Mercoledì 18 Marzo</h2>
                 <p>📍 Tunnels di Cu Chi e tour di Saigon</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Storia | 🕳️ Tunnel Cu Chi | 🏛️ Tour città
+                </p>
             </div>
 
             <div class="map-container">
@@ -1149,10 +1209,13 @@
         </div>
 
         <!-- GIORNO 13 -->
-        <div id="giorno13" class="section">
+        <div id="giorno13" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 13 - Giovedì 19 Marzo</h2>
                 <p>📍 Delta del Mekong - Tra mercati galleggianti e vita rurale</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Natura | 🚤 Delta del Mekong | 🥥 Vita locale
+                </p>
             </div>
 
             <div class="map-container">
@@ -1215,10 +1278,13 @@
         </div>
 
         <!-- GIORNO 14 -->
-        <div id="giorno14" class="section">
+        <div id="giorno14" class="section tab-pane">
             <div class="day-header">
                 <h2>Giorno 14 - Venerdì 20 Marzo</h2>
                 <p>📍 Partenza dal Vietnam</p>
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    ✈️ Rientro | 🧳 Ultimi dettagli | 🎉 Saluti al Vietnam
+                </p>
             </div>
 
             <div class="map-container">
@@ -1273,7 +1339,7 @@
         </div>
 
         <!-- SEZIONE CONSIGLI -->
-        <div id="consigli" class="tips-section">
+        <div id="consigli" class="tips-section tab-pane">
             <h2 style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">💡 CONSIGLI DI VIAGGIO</h2>
             <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Tutto quello che devi sapere per prepararti al meglio</p>
 
@@ -1442,5 +1508,28 @@
         <p>Creato con ❤️ per il tuo viaggio in Vietnam</p>
         <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">Documento interattivo - Febbraio 2026</p>
     </div>
+
+    <script>
+    function selezionaTab(event) {
+        event.preventDefault();
+        const targetId = event.currentTarget.getAttribute('data-target');
+
+        document.querySelectorAll('.tab-pane').forEach(pane => {
+            pane.classList.remove('attivo');
+        });
+
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.classList.remove('attivo');
+        });
+
+        const targetPane = document.getElementById(targetId);
+        if (targetPane) {
+            targetPane.classList.add('attivo');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        event.currentTarget.classList.add('attivo');
+    }
+    </script>
 </body>
 </html>
