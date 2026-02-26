@@ -267,6 +267,24 @@
         font-size: 1.5rem;
         margin-right: 0.5rem;
     }
+	
+	.pdf-program {
+		margin: 1.5rem 0;
+		padding: 1rem 1.25rem;
+		border-radius: 8px;
+		background: #f0f4ff;
+		border-left: 4px solid #264653;
+		font-size: 0.95rem;
+	}
+	.pdf-program h3 {
+		margin-bottom: 0.75rem;
+		color: #264653;
+		font-size: 1.1rem;
+	}
+	.pdf-program p {
+		margin-bottom: 0.5rem;
+	}
+
 
     /* --- SISTEMA A TAB --- */
     .tab-pane {
@@ -318,8 +336,7 @@
         <a href="#" class="tab-link" data-target="giorno13" onclick="selezionaTab(event)">Giorno 13</a>
         <a href="#" class="tab-link" data-target="giorno14" onclick="selezionaTab(event)">Giorno 14</a>
         <a href="#" class="tab-link" data-target="consigli" onclick="selezionaTab(event)">💡 Consigli</a>
-        <a href="#" class="tab-link" data-target="quota" onclick="selezionaTab(event)">💶 Quota & Info</a>
-        <a href="#" class="tab-link attivo" data-target="voli" onclick="selezionaTab(event)">✈️ Voli</a>
+        <a href="#" class="tab-link" data-target="voli" onclick="selezionaTab(event)">✈️ Voli</a>
     </div>
 
     <div class="container">
@@ -329,9 +346,25 @@
             <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">✈️ DETTAGLI VOLI</h2>
 
             <div class="flight-card">
-                <h3>🛫 VOLO DI ANDATA: Milano → Hanoi</h3>
+                <h3>🛫 VOLO 1 — Brindisi → Milano Malpensa</h3>
                 <p style="margin-bottom: 1rem;"><strong>Venerdì 6 Marzo 2026</strong></p>
+                <div class="flight-leg">
+                    <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Tratta: Brindisi → Milano Malpensa</h4>
+                    <div class="flight-details">
+                        <div class="flight-info"><strong>Partenza:</strong> 12:20 - BDS (Brindisi)</div>
+                        <div class="flight-info"><strong>Arrivo:</strong> 14:10 - MXP (Milano Malpensa)</div>
+                        <div class="flight-info"><strong>Durata:</strong> 1h 50m</div>
+                        <div class="flight-info"><strong>Volo:</strong> FR 3415 - Ryanair</div>
+                    </div>
+                </div>
+                <div style="text-align: center; padding: 1rem; color: #FFD700;">
+                    <strong>⏱️ Attesa a Malpensa prima del volo internazionale: ~8h</strong>
+                </div>
+            </div>
 
+            <div class="flight-card">
+                <h3>🛫 VOLO 2 — Milano → Hanoi</h3>
+                <p style="margin-bottom: 1rem;"><strong>Venerdì 6 Marzo 2026</strong></p>
                 <div class="flight-leg">
                     <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Tratta 1: Milano Malpensa → Doha</h4>
                     <div class="flight-details">
@@ -343,11 +376,9 @@
                         <div class="flight-info"><strong>Bagaglio:</strong> 30 kg incluso</div>
                     </div>
                 </div>
-
                 <div style="text-align: center; padding: 1rem; color: #FFD700;">
                     <strong>⏱️ Tempo di transito a Doha: 3h 20m</strong>
                 </div>
-
                 <div class="flight-leg">
                     <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Tratta 2: Doha → Hanoi</h4>
                     <div class="flight-details">
@@ -359,16 +390,14 @@
                         <div class="flight-info"><strong>Bagaglio:</strong> 30 kg incluso</div>
                     </div>
                 </div>
-
                 <div style="text-align: center; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">
                     <strong style="font-size: 1.2rem;">⏰ Durata totale viaggio: circa 21h 35m</strong>
                 </div>
             </div>
 
             <div class="flight-card">
-                <h3>🛬 VOLO DI RITORNO: Ho Chi Minh → Milano</h3>
+                <h3>🛬 VOLO 3 — Ho Chi Minh → Milano</h3>
                 <p style="margin-bottom: 1rem;"><strong>Venerdì 20 Marzo 2026</strong></p>
-
                 <div class="flight-leg">
                     <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Tratta 1: Ho Chi Minh → Doha</h4>
                     <div class="flight-details">
@@ -380,11 +409,9 @@
                         <div class="flight-info"><strong>Bagaglio:</strong> 30 kg incluso</div>
                     </div>
                 </div>
-
                 <div style="text-align: center; padding: 1rem; color: #FFD700;">
                     <strong>⏱️ Tempo di transito a Doha: 3h 0m</strong>
                 </div>
-
                 <div class="flight-leg">
                     <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Tratta 2: Doha → Milano Malpensa</h4>
                     <div class="flight-details">
@@ -396,12 +423,29 @@
                         <div class="flight-info"><strong>Bagaglio:</strong> 30 kg incluso</div>
                     </div>
                 </div>
-
                 <div style="text-align: center; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">
                     <strong style="font-size: 1.2rem;">⏰ Durata totale viaggio: circa 17h 15m</strong><br>
                     <span style="font-size: 0.95rem;">Arrivi a Milano la stessa sera!</span>
                 </div>
             </div>
+
+            <div class="flight-card">
+                <h3>🛬 VOLO 4 — Milano Malpensa → Brindisi</h3>
+                <p style="margin-bottom: 1rem;"><strong>Sabato 21 Marzo 2026</strong></p>
+                <div class="flight-leg">
+                    <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Tratta: Milano Malpensa → Brindisi</h4>
+                    <div class="flight-details">
+                        <div class="flight-info"><strong>Partenza:</strong> 10:30 - MXP (Milano Malpensa)</div>
+                        <div class="flight-info"><strong>Arrivo:</strong> 12:20 - BDS (Brindisi)</div>
+                        <div class="flight-info"><strong>Durata:</strong> 1h 50m</div>
+                        <div class="flight-info"><strong>Volo:</strong> FR 979 - Ryanair</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                    <strong style="font-size: 1.2rem;">🏠 Arrivo a Brindisi alle 12:20 — Bentornati a casa! 🎉</strong>
+                </div>
+            </div>
+
         </div>
 
         <!-- GIORNO 1 -->
@@ -414,29 +458,29 @@
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> All'arrivo ad Hanoi ti accoglierà la guida dell’agenzia e verrai accompagnato in hotel 4★ con transfer privato.
-            </div>
-
-            <p>
-                All'arrivo all'aeroporto internazionale di Hanoi ti accoglierà la guida della nostra agenzia, pronta a farti da cicerone in questa avventura.
-                Trasferimento in pullman fino all'hotel 4★, dove comfort e ospitalità ti aspettano per garantirti un riposo ottimale.
-                Avrai il resto della giornata a disposizione per rilassarti dopo il viaggio o per iniziare ad esplorare la vibrante capitale del Vietnam, tra cultura, storia e vita moderna.
-                Pernottamento a Hanoi in hotel 4★, con check‑in disponibile dalle ore 14:00.
-            </p>
-            <p><strong>Pasti:</strong> nessun pasto previsto.</p>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238132.63765788806!2d105.61944125!3d21.028494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2sHanoi%2C%20Vietnam!5e0!3m2!1sit!2sit!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>✈️ Arrivo:</strong> Atterraggio previsto alle 19:45 all'aeroporto internazionale Noi Bai (HAN). Transfer in hotel 4 stelle e serata libera per riposare dopo il viaggio.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 1: Buongiorno Vietnam e primo incontro con la Capitale (nessun pasto previsto)</strong></p>
+				<p>All'arrivo all'aeroporto internazionale di Hanoi, ti accoglierà la guida della nostra agenzia, pronta a farti da cicerone in questa avventura indimenticabile. Ti accompagneremo con un comodo pullman fino all'hotel, dove comfort e ospitalità ti aspettano per garantirti un riposo ottimale.</p>
+				<p>Avrai il resto della giornata a tua disposizione: approfittane per rilassarti dopo il viaggio o per iniziare ad esplorare la vibrante capitale del Vietnam. Hanoi, con il suo affascinante mix di cultura, storia e vivacità moderna, ti offre mille occasioni di scoperta fin dal primo momento.</p>
+				<p>Pernottamento a Hanoi in Hotel 4 stelle con check-in disponibile dalle ore 14.00: il punto di partenza perfetto per l'esplorazione che ti attende.</p>
+				<p><em>Nessun pasto previsto.</em></p>
+			</div>
 
             <div class="info-grid">
                 <div class="info-card">
                     <h4><span class="emoji">🏨</span>Sistemazione</h4>
                     <ul>
-                        <li>Check‑in in hotel 4 stelle ad Hanoi</li>
+                        <li>Check-in hotel 4 stelle ad Hanoi</li>
                         <li>Tempo per riposare dal lungo viaggio</li>
-                        <li>Primo contatto con la capitale vietnamita</li>
+                        <li>Prima impressione della capitale vietnamita</li>
                     </ul>
                 </div>
 
@@ -445,14 +489,14 @@
                     <ul>
                         <li>Cambiare un po' di valuta in dong vietnamiti (VND)</li>
                         <li>Acquistare SIM locale o verificare roaming</li>
-                        <li>Bere molta acqua per reidratarsi dal volo</li>
+                        <li>Bere tanta acqua per reidratarsi dal volo</li>
                     </ul>
                 </div>
 
                 <div class="info-card">
                     <h4><span class="emoji">🌙</span>Serata Libera</h4>
                     <ul>
-                        <li>Passeggiata intorno al Lago Hoan Kiem</li>
+                        <li>Passeggiata intorno al Lago Hoan Kiem (10 min a piedi)</li>
                         <li>Primo assaggio di street food vietnamita</li>
                         <li>Esplorare il Quartiere Vecchio illuminato</li>
                     </ul>
@@ -461,12 +505,16 @@
                 <div class="info-card">
                     <h4><span class="emoji">🍜</span>Dove Cenare</h4>
                     <ul>
-                        <li>Bun Cha Huong Lien (famoso per la visita di Obama)</li>
+                        <li>Bun Cha Huong Lien (dove mangiò Obama)</li>
                         <li>Pho Gia Truyen Bat Dan (pho autentico)</li>
                         <li>Street food su Ta Hien Street</li>
                     </ul>
                 </div>
             </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Gemme Nascoste</h3>
+            <p><strong>Train Street:</strong> Via stretta con i binari del treno che passa tra le case (50 Ngo 224 Le Duan). Arrivo tardi quindi potrebbe essere chiusa, ma vale una passeggiata nel quartiere.</p>
+            <p><strong>Bia Hoi Corner (Ta Hien St):</strong> Zona autentica dove i locali si incontrano per bere birra fresca a pochi centesimi seduti su sgabellini bassi.</p>
         </div>
 
         <!-- GIORNO 2 -->
@@ -479,34 +527,34 @@
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Giornata dedicata ai luoghi simbolo di Hanoi: Mausoleo di Ho Chi Minh, Pagoda su un Pilastro, Tempio della Letteratura, Pagoda Tran Quoc, Quartiere Vecchio e Tempio Ngoc Son.
-            </div>
-
-            <p>
-                Colazione in hotel e partenza per un tour completo di Hanoi.
-                Visita al Mausoleo di Ho Chi Minh, luogo sacro dove riposa il leader rivoluzionario, quindi Palazzo Presidenziale e Casa su Palafitte immersa nel parco.
-                Sosta alla Pagoda Chua Mot Cot, antico tempio buddhista del 1049 costruito su un unico pilastro, simbolo della purezza del fiore di loto.
-                Proseguimento verso il Tempio della Letteratura, prima università del Vietnam dedicata a Confucio e agli studiosi.
-                Nel pomeriggio visita alla Pagoda di Tran Quoc, il tempio buddhista più antico della città, e immersione nel Quartiere Vecchio con le sue 36 vie, ognuna storicamente legata a un mestiere.
-                Conclusione al Tempio Ngoc Son, sul Lago della Spada Restituita, con possibilità di vedere il famoso treno che attraversa la città.
-                Pernottamento ad Hanoi.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59533.24788047831!2d105.8175257!3d21.0245863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4bd70dc14b%3A0x761277ba284daa6b!2sHo%20Chi%20Minh%20Mausoleum!5e0!3m2!1sit!2sit!4v1234567891" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>📅 Programma:</strong> Visita guidata completa della capitale con guida in italiano. Focus su storia, cultura e vita quotidiana di Hanoi.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 2: Alla Scoperta di Hanoi e della Sua Storia Millenaria (colazione)</strong></p>
+				<p>Colazione in Hotel. Questa giornata è interamente dedicata all'esplorazione di Hanoi, un viaggio attraverso i monumenti e i luoghi che ne raccontano la storia e la cultura. Il tour inizia con la visita al Mausoleo di Ho Chi Minh, luogo sacro dove riposa il leader rivoluzionario, meta di pellegrinaggio per i vietnamiti.</p>
+				<p>Proseguiremo poi verso l'imponente Palazzo Presidenziale e la suggestiva Casa su Palafitte di Ho Chi Minh, immersa in un verde parco. Il simbolo della città che visiteremo è la Pagoda Chua Mot Cot, un antico tempio buddista del 1049, eretto su un singolo pilastro e circondato da un laghetto che simboleggia la purezza del Fiore di Loto.</p>
+				<p>Il nostro cammino ci porterà quindi al Tempio della Letteratura, la veneranda università dedicata a Confucio, fondata nel 1070 in onore di studiosi e letterati.</p>
+				<p>Nel pomeriggio ci dirigiamo verso la Pagoda di Tran Quoc, il più antico tempio buddista di Hanoi. Successivamente, ci immergiamo nell'effervescenza del Quartiere Vecchio, cuore storico e anima commerciale della città, con le sue 36 vie dedicate ognuna a un mestiere specifico.</p>
+				<p>Concluderemo il nostro viaggio esplorativo al Tempio Ngoc Son, un'oasi di pace situata vicino al Lago della Spada Restituita. Abbiamo anche la possibilità di vedere il treno che attraversa la città.</p>
+				<p>Pernottamento a Hanoi.</p>
+			</div>
+
 
             <div class="info-grid">
                 <div class="info-card">
                     <h4><span class="emoji">🏛️</span>Attrazioni Principali</h4>
                     <ul>
-                        <li>Mausoleo di Ho Chi Minh</li>
-                        <li>Palazzo Presidenziale e Casa su Palafitte</li>
+                        <li>Mausoleo di Ho Chi Minh (chiuso lunedì/venerdì)</li>
+                        <li>Palazzo Presidenziale e Casa su palafitte</li>
                         <li>Pagoda su un Pilastro (Chua Mot Cot)</li>
-                        <li>Tempio della Letteratura</li>
-                        <li>Pagoda di Tran Quoc</li>
+                        <li>Tempio della Letteratura (prima università)</li>
+                        <li>Pagoda di Tran Quoc sul West Lake</li>
                         <li>Quartiere Vecchio (36 Streets)</li>
                         <li>Tempio Ngoc Son sul Lago Hoan Kiem</li>
                     </ul>
@@ -515,25 +563,38 @@
                 <div class="info-card">
                     <h4><span class="emoji">🍲</span>Cibo da Provare</h4>
                     <ul>
-                        <li>Bun Cha</li>
-                        <li>Pho Bo</li>
-                        <li>Banh Mi</li>
+                        <li>Bun Cha (noodles con maiale grigliato)</li>
+                        <li>Pho Bo (zuppa di noodles con manzo)</li>
+                        <li>Banh Mi (panino vietnamita)</li>
                         <li>Egg Coffee al Cafe Giang</li>
-                        <li>Cha Ca La Vong</li>
+                        <li>Cha Ca La Vong (pesce fritto con erbe)</li>
                     </ul>
                 </div>
 
                 <div class="info-card">
                     <h4><span class="emoji">📸</span>Cosa Non Perdere</h4>
                     <ul>
-                        <li>Ponte rosso The Huc sul lago</li>
+                        <li>Foto al ponte rosso The Huc sul lago</li>
                         <li>Architettura coloniale francese</li>
-                        <li>Traffico di scooter</li>
-                        <li>Mercati del Quartiere Vecchio</li>
-                        <li>Spettacolo burattini sull’acqua (opzionale)</li>
+                        <li>Traffico caotico di moto (milioni!)</li>
+                        <li>Mercati locali del Quartiere Vecchio</li>
+                        <li>Spettacolo di burattini sull'acqua (opzionale)</li>
                     </ul>
                 </div>
             </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Off The Beaten Path</h3>
+            <p><strong>Bun Rieu Cua 34 Hang Tre:</strong> Piccolo ristorante locale con zuppa di noodles al granchio, frequentato solo da vietnamiti.</p>
+            <p><strong>Long Bien Bridge:</strong> Storico ponte ferroviario costruito dai francesi, perfetto per foto al tramonto.</p>
+            <p><strong>Hang Buom Street:</strong> Strada nel quartiere vecchio con case coloniali autentiche e meno turisti.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🌙 Vita Notturna</h3>
+            <p>Hanoi è più tranquilla di Saigon ma offre bar e pub interessanti:</p>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Polite Pub:</strong> Rooftop bar con vista sul Quartiere Vecchio</li>
+                <li><strong>Bia Hoi Junction:</strong> Esperienza autentica con birra artigianale locale</li>
+                <li><strong>Hanoi Social Club:</strong> Bar/ristorante trendy per viaggiatori</li>
+            </ul>
         </div>
 
         <!-- GIORNO 3 -->
@@ -542,27 +603,72 @@
                 <h2>Giorno 3 - Lunedì 9 Marzo</h2>
                 <p>📍 Mai Chau - Tra risaie e villaggi Thai</p>
                 <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
-                    🧭 Natura | 🚗 Trasferimento | 🍽️ Pranzo in famiglia Thai
+                    🧭 Natura | 🚗 3-4h trasferimento | 🍽️ Pranzo in famiglia Thai
                 </p>
             </div>
-
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Viaggio verso Mai Chau, pranzo in famiglia locale e visita dei villaggi Thai su macchina elettrica, con pernottamento in ecolodge 4★.
-            </div>
-
-            <p>
-                Dopo la colazione si parte verso Mai Chau, attraversando paesaggi di colline verdi, campi di riso luccicanti e case su palafitte dell’etnia Thai, punteggiate da piante di pomelo.
-                Sono previste soste per fotografie lungo il tragitto.
-                Arrivo a Mai Chau in tempo per il pranzo presso una famiglia locale, con piatti autentici preparati con ingredienti freschi secondo ricette tradizionali.
-                Nel pomeriggio il tour continua su macchina elettrica tra i villaggi di Ban Lac, Pom Coong, Nhot, con possibilità di osservare la vita quotidiana dei contadini e interagire con le famiglie.
-                La giornata si conclude al resort immerso nella natura.
-                Pernottamento a Mai Chau in ecolodge 4★, tra le iconiche case su palafitte tipiche dei Thai bianchi.
-            </p>
-            <p><strong>Pasti:</strong> colazione e pranzo.</p>
 
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.94494073906!2d104.9945!3d20.6792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3131cf3da1be8a37%3A0x24ac3a325e8e7f77!2sMai%20Chau%2C%20Hoa%20Binh%2C%20Vietnam!5e0!3m2!1sit!2sit!4v1234567892" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>🚗 Trasferimento:</strong> 3-4 ore di viaggio attraverso paesaggi montani spettacolari. Pranzo tradizionale presso famiglia Thai locale incluso.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 3: Scopriamo l’etnica Thai e la natura autentica di Mai Chau (colazione e pranzo)</strong></p>
+				<p>Dopo la colazione, ci attende un viaggio emozionante verso Mai Chau. Durante il tragitto, siamo circondati da un paesaggio mozzafiato fatto di colline verdi, campi di riso luccicanti e case tradizionali su palafitte dell'etnia Thai, punteggiate da piante di pomelo.</p>
+				<p>Faremo alcune fermate lungo la strada per immortalare con fotografie la bellezza di queste viste. Arriviamo a Mai Chau proprio in tempo per il pranzo, ospiti di una famiglia locale. Questa è un'occasione unica per assaporare i piatti autentici della regione, cucinati con ingredienti freschi e secondo le ricette tradizionali.</p>
+				<p>Nel pomeriggio, l'avventura prosegue su macchina elettrica: ci addentriamo nelle stradine di campagna per visitare i villaggi vicini come Ban Lac, Pom Coong, Nhot…. Questo tour ci permette di osservare da vicino la vita quotidiana dei contadini nei campi e di fare brevi soste per interagire con le famiglie dell'etnia Thai, scoprendo così usanze e tradizioni locali.</p>
+				<p>La giornata si conclude con l'arrivo al resort, dove trascorreremo la serata immersi nella tranquillità della natura. Pernottamento a Mai Chau in Ecolodge 4 stelle: Mai Chau è rinomata per le sue case su palafitte, un'iconica caratteristica architettonica che riflette lo stile di vita e le tradizioni delle etnie locali, principalmente i Thai bianchi.</p>
+			</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🌾</span>Esperienze</h4>
+                    <ul>
+                        <li>Paesaggi di risaie terrazzate verdi</li>
+                        <li>Villaggio Ban Lac (etnia Thai Bianca)</li>
+                        <li>Villaggio Pom Coong tra le montagne</li>
+                        <li>Case tradizionali su palafitte</li>
+                        <li>Tour in macchina elettrica nei villaggi</li>
+                        <li>Osservare la vita contadina quotidiana</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🍽️</span>Cibo Locale</h4>
+                    <ul>
+                        <li>Com Lam (riso cotto nel bambù)</li>
+                        <li>Pollo di montagna alla griglia</li>
+                        <li>Verdure fresche locali</li>
+                        <li>Ruou Can (vino di riso con cannucce)</li>
+                        <li>Pranzo in casa Thai autentica</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏡</span>Pernottamento</h4>
+                    <ul>
+                        <li>Ecolodge immerso nella natura</li>
+                        <li>Atmosfera tranquilla e rilassante</li>
+                        <li>Vista sulle montagne e risaie</li>
+                        <li>Notte con suoni della natura</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Esperienze Autentiche</h3>
+            <p><strong>Mercato domenicale di Pa Co:</strong> Se fosse domenica, questo mercato etnico è incredibile con minoranze locali in abiti tradizionali.</p>
+            <p><strong>Trekking mattutino:</strong> Chiedi al lodge di organizzare una breve camminata all'alba tra le risaie con una guida locale.</p>
+            <p><strong>Tessitura tradizionale:</strong> Visita alle donne Thai che tessono tessuti con telai tradizionali nelle loro case.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">📸 Foto Imperdibili</h3>
+            <ul style="margin-left: 2rem;">
+                <li>Panorama dall'alto sulla valle di Mai Chau</li>
+                <li>Tramonti sulle risaie terrazzate</li>
+                <li>Case su palafitte con montagne sullo sfondo</li>
+            </ul>
         </div>
 
         <!-- GIORNO 4 -->
@@ -575,22 +681,68 @@
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Spostamento a Ninh Binh, navigazione in sampan a Tam Coc e visita alla Pagoda di Bich Dong.
-            </div>
-
-            <p>
-                Dopo la colazione partenza verso Ninh Binh, noto come la “Baia di Halong sulla terra”.
-                L’avventura inizia a Tam Coc, con imbarco su una tradizionale sampan guidata dalle donne del luogo.
-                Navigazione lungo canali tranquilli fino alle grotte di Tam Coc, le “Tre Grotte”, tra faraglioni che emergono dalle risaie in un paesaggio quasi surreale.
-                A seguire visita alla Pagoda di Bich Dong, tempio nascosto tra rocce e vegetazione, il cui nome significa “Grotta della Perla Verde”.
-                Pernottamento a Ninh Binh in hotel 4★.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238656.77826666015!2d105.8076!3d20.2562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3136955c6a6ecaa1%3A0x5ce10bf58e740f5!2sNinh%20Binh%2C%20Vietnam!5e0!3m2!1sit!2sit!4v1234567893" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>🛶 Highlight:</strong> Navigazione in sampan (barca tradizionale) tra faraglioni calcarei, grotte e risaie. Paesaggio da film!
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 4: La natura surreale di Ninh Binh (colazione)</strong></p>
+				<p>Dopo la colazione partiamo alla scoperta di Ninh Binh, un gioiello nascosto del Vietnam, noto come la "Baia di Halong sulla terra".</p>
+				<p>La tua avventura inizia con la visita a Tam Coc, che si trasforma in un'esperienza magica quando ti imbarchi su una tradizionale sampan, guidata abilmente dalle donne del luogo. Naviga attraverso i tranquilli canali fino a raggiungere le grotte di Tam Coc, note come "Le Tre Grotte", un paesaggio quasi surreale dove la natura ha scolpito meraviglie nel corso dei secoli, con maestosi faraglioni che emergono dalle risaie.</p>
+				<p>La giornata si conclude con la visita alla Pagoda di Bich Dong, un tempio serenamente nascosto in un paesaggio di rara bellezza, il cui nome, "La Grotta della Perla Verde", evoca immagini di mistero e tranquillità.</p>
+				<p>Dopo la visita, raggiungiamo l'hotel e pernottamento a Ninh Binh in hotel 4 stelle, cullato dalle memorie di una giornata ricca di scoperte e meraviglia naturale.</p>
+			</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">⛰️</span>Attrazioni</h4>
+                    <ul>
+                        <li>Tam Coc ("3 grotte") in sampan</li>
+                        <li>Navigazione tra faraglioni di roccia calcarea</li>
+                        <li>Attraversamento di 3 grotte naturali</li>
+                        <li>Pagoda Bich Dong incastonata nella roccia</li>
+                        <li>Paesaggi di risaie tra montagne</li>
+                        <li>Fiume Ngo Dong serpeggiante</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🍜</span>Specialità</h4>
+                    <ul>
+                        <li>Com Chay (riso bruciato croccante)</li>
+                        <li>De Nuong (capretto alla griglia)</li>
+                        <li>Nem Nen (involtini pressati)</li>
+                        <li>Ca Ro Dong (pesce carpa arrostito)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">✨</span>Cosa Sapere</h4>
+                    <ul>
+                        <li>Le rematore usano i piedi!</li>
+                        <li>Tour dura circa 2 ore</li>
+                        <li>Porta cappello e crema solare</li>
+                        <li>Mancia per la rematore (opzionale)</li>
+                        <li>Hotel 4 stelle a Ninh Binh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Luoghi Meno Turistici</h3>
+            <p><strong>Trang An Scenic Landscape:</strong> Alternativa a Tam Coc, più grande e meno affollata (Patrimonio UNESCO). Chiedi alla guida se è possibile visitarla.</p>
+            <p><strong>Hang Mua (Mua Cave):</strong> Salita di 500 gradini per vista panoramica spettacolare su tutta la valle. Vale la fatica!</p>
+            <p><strong>Van Long Nature Reserve:</strong> Zona umida tranquilla con birdwatching e atmosfera più selvaggia.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">📷 Best Photo Spots</h3>
+            <ul style="margin-left: 2rem;">
+                <li>Viewpoint di Hang Mua (se avete tempo)</li>
+                <li>Dalla barca attraversando le grotte</li>
+                <li>Pagoda Bich Dong con scalinata nella montagna</li>
+            </ul>
         </div>
 
         <!-- GIORNO 5 -->
@@ -603,28 +755,78 @@
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Trasferimento alla Baia di Ha Long e imbarco sulla Sena Cruise 4★ per la crociera nella baia di Lan Ha, con programma dettagliato a bordo.
-            </div>
-
-            <p>
-                Dopo colazione incontro con la guida e partenza in pulmino privato verso la Baia di Ha Long, Patrimonio UNESCO e luogo “dove il drago scende in mare”.
-                Arrivo al porto di Tuan Chau e imbarco sulla nave Sena Cruise 4★, con cabine private dotate di tutti i servizi.
-            </p>
-            <p>
-                <strong>Programma prima giornata di crociera:</strong><br>
-                12:00–12:15 · Arrivo al porto di Tuan Chau.<br>
-                12:00–12:30 · Trasferimento alla barca principale, drink di benvenuto e check‑in in cabina.<br>
-                13:15–13:45 · Pranzo a buffet mentre la crociera attraversa la baia di Lan Ha, passando accanto a formazioni come Finger Islet e Candle Islet.<br>
-                15:00 · Esplorazione della baia con visita alla Grotta Oscura e Luminosa, con possibilità di foto, giro in barca di bambù o nuoto.<br>
-                17:00 · Rientro a bordo, tramonto sulla baia e corso di cucina per imparare a preparare gli involtini primavera vietnamiti.<br>
-                19:00 · Cena di lusso a bordo, tempo libero al bar o in spa.
-            </p>
-            <p><strong>Pasti:</strong> colazione, pranzo e cena.</p>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238407.13984358478!2d106.9!3d20.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a54db044039d9%3A0x35c507649ec4e811!2sLan%20Ha%20Bay!5e0!3m2!1sit!2sit!4v1234567894" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>🚢 Crociera:</strong> Imbarco sulla Sena Cruise 4 stelle. Pranzo, cena e pernottamento a bordo. Una delle esperienze più magiche del viaggio!
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 5: Navighiamo nella favolosa baia di Lan Ha (colazione, pranzo e cena)</strong></p>
+				<p>Dopo una colazione energizzante, incontrate la nostra guida e con il pulmino privato partiamo per la Baia di Ha Long, dichiarata Patrimonio dell'Umanità UNESCO e famosa per essere il luogo “dove il drago scende in mare”.</p>
+				<p>Arrivato ad Ha Long, salperemo per una crociera indimenticabile sulla nostra giunca di prestigio: la Sena Cruise 4 stelle. Le tue notti in baia saranno avvolte dal comfort di cabine private, ciascuna dotata di tutti i servizi necessari per garantirti un soggiorno piacevole e rilassante.</p>
+				<p>Preparati a vivere momenti indimenticabili, circondato dalla maestosa bellezza naturale della baia, sotto un cielo stellato che solo Ha Long sa offrire. Questa imbarcazione rappresenta l'equilibrio perfetto tra eleganza classica e comfort moderno, offrendoti l'esperienza unica di navigare tra migliaia di isole calcaree e formazioni rocciose che emergono dalle acque cristalline in un panorama da sogno.</p>
+				<p><strong>PROGRAMMA PRIMA GIORNATA DELLA CROCIERA 4 STELLE</strong></p>
+				<p><strong>12:00 - 12:15</strong> | Arrivo al porto di Tuan Chau: inizia la tua avventura incontrandoci al porto, pronto per un'esperienza che ricorderai per sempre.</p>
+				<p><strong>12:00 - 12:30</strong> | Trasferimento alla barca principale: mentre ci dirigiamo verso la giunca, un caloroso benvenuto a bordo della Sena Cruise ti aspetta, con un drink di benvenuto e tutte le informazioni necessarie per iniziare al meglio questa esperienza. È anche il momento del check-in in cabina.</p>
+				<p><strong>13:15 - 13:45</strong> | Pranzo favoloso: mentre la crociera prende il largo, goditi un pranzo a buffet con vista sulla splendida baia di Lan Ha, navigando accanto a formazioni rocciose uniche come il Finger Islet e Candle Islet.</p>
+				<p><strong>15:00</strong> | Esplorazione della baia di Lan Ha: questo è il momento clou della giornata, con la visita alla Grotta Oscura e Luminosa, un paradiso naturale dove potrai fare foto, goderti un giro in barca di bambù o tuffarti nelle acque cristalline per nuotare.</p>
+				<p><strong>17:00</strong> | Ritorno sulla nave: al tuo rientro, preparati al tramonto, un momento magico per gli amanti della fotografia, seguito dalla possibilità di partecipare a un corso di cucina per imparare a preparare gli involtini primavera vietnamiti.</p>
+				<p><strong>19:00</strong> | Cena di lusso: dopo cena, goditi del tempo libero al bar o prenota un trattamento spa per rilassarti completamente.</p>
+			</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">⛵</span>Programma</h4>
+                    <ul>
+                        <li>Imbarco mattutino dalla baia di Halong</li>
+                        <li>Pranzo gourmet a bordo navigando</li>
+                        <li>Visita Grotta Oscura e Luminosa</li>
+                        <li>Tour in barca di bambù</li>
+                        <li>Nuoto e kayak nelle acque smeraldo</li>
+                        <li>Corso di cucina vietnamita al tramonto</li>
+                        <li>Cena romantica sulla nave</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏝️</span>Perché Lan Ha?</h4>
+                    <ul>
+                        <li>Meno turistica di Halong Bay</li>
+                        <li>Acque più pulite e cristalline</li>
+                        <li>Oltre 300 isole calcaree</li>
+                        <li>Spiagge nascoste e grotte segrete</li>
+                        <li>Atmosfera più autentica</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🎒</span>Cosa Portare</h4>
+                    <ul>
+                        <li>Costume da bagno</li>
+                        <li>Crema solare e cappello</li>
+                        <li>Macchina fotografica waterproof</li>
+                        <li>Cambio per la notte</li>
+                        <li>Scarpe comode per grotte</li>
+                        <li>Zaino piccolo per escursioni</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Esperienze Uniche</h3>
+            <p><strong>Kayak al tramonto:</strong> Esplora grotte nascoste e lagune segrete in kayak - momento magico tra le isole.</p>
+            <p><strong>Pesca notturna con i calamari:</strong> Alcune crociere offrono l'esperienza di pescare calamari di notte con i pescatori locali.</p>
+            <p><strong>Tai Chi all'alba:</strong> Partecipa alla sessione mattutina sul ponte (giorno 6) con vista sulla baia che si sveglia.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🍽️ Cucina a Bordo</h3>
+            <ul style="margin-left: 2rem;">
+                <li>Menu degustazione con pesce fresco</li>
+                <li>Corso di spring rolls</li>
+                <li>Barbecue sul ponte (meteo permettendo)</li>
+                <li>Bar aperto con cocktail tropicali</li>
+            </ul>
         </div>
 
         <!-- GIORNO 6 -->
@@ -633,31 +835,69 @@
                 <h2>Giorno 6 - Giovedì 12 Marzo</h2>
                 <p>📍 Dalla baia a Hue (con volo interno)</p>
                 <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
-                    🧭 Transito | ✈️ Volo interno | 🏙️ Hue
+                    🧭 Transito | ✈️ Volo interno | 🏙️ Scoperta di Hue
                 </p>
             </div>
-
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Secondo giorno di crociera tra Tai Chi, kayak e brunch, poi trasferimento ad Hanoi e volo per Hue con pernottamento in hotel 4★.
-            </div>
-
-            <p>
-                Chi desidera può svegliarsi presto verso le 6 per ammirare l’alba sulla baia o partecipare alla lezione di Tai Chi.
-                07:00 · Colazione mentre la nave continua la navigazione tra torri carsiche, con tè, caffè e colazione leggera serviti all’aria aperta.<br>
-                08:15 · Giro in kayak nella baia di Lan Ha.<br>
-                09:30 · Rientro a bordo per il check‑out.<br>
-                10:00 · Brunch mentre la nave naviga lentamente verso il porto tra acque color smeraldo e montagne carsiche.<br>
-                11:30–12:00 · Sbarco al porto di Halong.
-            </p>
-            <p>
-                Al termine trasferimento in pullman verso l’aeroporto di Hanoi per il volo interno verso Hue.
-                All’arrivo a Hue incontro con l’autista, trasferimento in struttura e pernottamento in hotel 4★.
-            </p>
-            <p><strong>Pasti:</strong> colazione e brunch.</p>
 
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244956.95469383595!2d107.5!3d16.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a13f1639353b%3A0x673c3e8ac29ee21!2sHue%2C%20Vietnam!5e0!3m2!1sit!2sit!4v1234567895" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>✈️ Giornata di transito:</strong> Ultima mattina in baia con Tai Chi e kayak, poi volo Hanoi-Hue (Vietnam Airlines incluso). Arrivo nel pomeriggio.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 6: Dalla verde di Lan Ha all’antica capitale della città dei Profumi (colazione e brunch)</strong></p>
+				<p><strong>PROGRAMMA SECONDA GIORNATA DELLA CROCIERA 4 STELLE</strong></p>
+				<p>Chi decide di alzarsi presto, circa alle 6 di mattina, potrà ammirare la magia della baia con la luce dell’alba oppure fare una lezione di Tai Chi.</p>
+				<p><strong>07:00</strong> | Facciamo la colazione mentre la nave continua la sua navigazione, superando incredibili torri carsiche. Tè, caffè e colazione leggera vengono serviti all'aria aperta e in un ambiente tranquillo.</p>
+				<p><strong>08:15</strong> | Prendiamo il kayak per fare un giro nella Baia di Lan Ha.</p>
+				<p><strong>09:30</strong> | Ritorno alla barca per il check-out.</p>
+				<p><strong>10:00</strong> | Brunch: mentre mangiamo, la nave da crociera naviga lentamente in acque color smeraldo e migliaia di montagne carsiche verso il porto.</p>
+				<p><strong>11:30 - 12:00</strong> | Rientro al porto di Halong e sbarco dalla crociera.</p>
+				<p>Poi con il pullman raggiungiamo l’aeroporto di Hanoi dove vi aspetta il volo per Hue.</p>
+				<p>Arrivati a Hue, il nostro autista vi aspetta e con bus privato per il trasferimento in struttura, check-in e pernottamento a Hue in hotel 4 stelle.</p>
+			</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🌅</span>Mattina in Baia</h4>
+                    <ul>
+                        <li>Tai Chi all'alba (facoltativo)</li>
+                        <li>Colazione leggera a bordo</li>
+                        <li>Ultima sessione di kayak</li>
+                        <li>Brunch gourmet</li>
+                        <li>Sbarco e transfer ad Hanoi</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏛️</span>Hue - Antica Capitale</h4>
+                    <ul>
+                        <li>Capitale imperiale del Vietnam (1802-1945)</li>
+                        <li>Patrimonio UNESCO</li>
+                        <li>Città sul Fiume dei Profumi</li>
+                        <li>Cucina raffinata e unica</li>
+                        <li>Atmosfera più tranquilla</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🌙</span>Sera Libera</h4>
+                    <ul>
+                        <li>Passeggiata lungo il fiume</li>
+                        <li>Mercato notturno di Dong Ba</li>
+                        <li>Cena con specialità imperiali</li>
+                        <li>Relax in hotel 4 stelle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🍜 Prima Sera a Hue - Dove Mangiare</h3>
+            <p><strong>Hanh Restaurant:</strong> Storico ristorante con cucina imperiale autentica (42 Nguyen Cong Tru).</p>
+            <p><strong>Bun Bo Hue O Tuyen:</strong> La migliore bun bo hue della città, zuppa piccante tipica (17 Ly Thuong Kiet).</p>
+            <p><strong>Madam Thu Restaurant:</strong> Gestito da una ex chef di corte, atmosfera in giardino e piatti raffinati.</p>
         </div>
 
         <!-- GIORNO 7 -->
@@ -670,22 +910,77 @@
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Visita al mercato Dong Ba, Cittadella Imperiale, Pagoda Thien Mu e Mausoleo di Khai Dinh.
-            </div>
-
-            <p>
-                Dopo la colazione visita al mercato Dong Ba per immergersi nell’atmosfera vivace dei banchi locali.
-                Si prosegue verso la Cittadella Imperiale del XIX secolo, circondata da fossato e alte mura, che racchiude la Città Proibita Viola e l’antica residenza dell’Imperatore.
-                Successivamente visita alla Pagoda Thien Mu (Celeste Signora), simbolo di Hue affacciato sul Fiume dei Profumi.
-                La giornata si conclude con il Mausoleo di Khai Dinh, ultimo imperatore Nguyen, noto per la sua architettura che combina elementi vietnamiti e occidentali.
-                Pernottamento a Hue.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
-
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61239.2429346!3d107.54!3d16.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a146ed5a31d1%3A0x640b234dd0916fb1!2sImperial%20City%20of%20Hue!5e0!3m2!1sit!2sit!4v1234567896" allowfullscreen="" loading="lazy"></iframe>
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61239.2429346!2d107.54!3d16.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a146ed5a31d1%3A0x640b234dd0916fb1!2sImperial%20City%20of%20Hue!5e0!3m2!1sit!2sit!4v1700000007000" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+				</iframe>
+			</div>
+
+
+            <div class="highlight-box">
+                <strong>👑 Focus:</strong> Giornata dedicata alla storia imperiale della dinastia Nguyen. Preparati a camminare molto tra palazzi e mausolei!
             </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 7: Alla Scoperta della Magnifica Cittadella Imperiale (colazione)</strong></p>
+				<p>Dopo la colazione, la giornata inizia con una visita al mercato Dong Ba, dove potrai immergerti nell'atmosfera vivace e colorata del mercato locale.</p>
+				<p>Poi proseguiamo verso la Cittadella Imperiale, risalente al XIX secolo. Circondata da un fossato e alte mura di pietra, al suo interno custodisce la Città Proibita Viola e l'antica residenza dell'Imperatore, offrendo uno sguardo affascinante sulla storia imperiale del Vietnam.</p>
+				<p>Successivamente, visitiamo la Pagoda di Thien Mu (anche chiamata Celeste Signora), uno dei simboli più iconici di Hue, situata lungo il Fiume dei Profumi e famosa per la sua architettura storica e la splendida vista panoramica.</p>
+				<p>Concludiamo la giornata con la visita al Mausoleo di Khai Dinh, mausoleo dell'ultimo imperatore della dinastia Nguyen, noto per la sua architettura unica che combina elementi vietnamiti e occidentali, con influenze francesi visibili nell'uso di materiali moderni come cemento, ceramica e metallo.</p>
+				<p>La giornata si conclude con il pernottamento a Hue, ricco di nuove memorie di paesaggi incantevoli e di profonda storia vietnamita.</p>
+			</div>
+
+			
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🏰</span>Visite Principali</h4>
+                    <ul>
+                        <li>Mercato Dong Ba (mattino presto)</li>
+                        <li>Cittadella Imperiale e Città Proibita</li>
+                        <li>Palazzo Thai Hoa (Sala del Trono)</li>
+                        <li>Pagoda Thien Mu (simbolo di Hue)</li>
+                        <li>Crociera sul Fiume dei Profumi</li>
+                        <li>Mausoleo imperatore Khai Dinh</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🍲</span>Cibo Imperiale</h4>
+                    <ul>
+                        <li>Bun Bo Hue (zuppa piccante)</li>
+                        <li>Banh Khoai (pancake croccante)</li>
+                        <li>Nem Lui (spiedini su citronella)</li>
+                        <li>Com Hen (riso con vongole)</li>
+                        <li>Banh Beo (ravioli al vapore)</li>
+                        <li>Che (dolce con ghiaccio)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">📸</span>Best Photos</h4>
+                    <ul>
+                        <li>Porta Meridiana (Ngo Mon Gate)</li>
+                        <li>Pagoda Thien Mu a 7 piani</li>
+                        <li>Ponti coperti della Cittadella</li>
+                        <li>Mausoleo Khai Dinh (stile fusion)</li>
+                        <li>Fiume dei Profumi al tramonto</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Gemme Nascoste di Hue</h3>
+            <p><strong>Thanh Toan Tile Bridge:</strong> Antico ponte coperto giapponese del 1776 in un villaggio agricolo (8 km dal centro). Pochi turisti, atmosfera autentica.</p>
+            <p><strong>An Dinh Palace:</strong> Palazzo meno visitato ma magnificamente restaurato con ceramiche originali.</p>
+            <p><strong>Lunch Queen Cafe:</strong> Piccolo ristorante dove la proprietaria (chiamata "Queen") cucina piatti imperiali segreti tramandati dalla famiglia reale.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🌃 Sera a Hue</h3>
+            <p>Hue è tranquilla di sera, ma ci sono alcune opzioni:</p>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Dong Ba Night Market:</strong> Mercato notturno con street food e shopping</li>
+                <li><strong>DMZ Bar:</strong> Bar per viaggiatori con musica dal vivo</li>
+                <li><strong>Brown Eyes:</strong> Pub locale frequentato da universitari vietnamiti</li>
+                <li><strong>Riverside walk:</strong> Passeggiata romantica illuminata lungo il fiume</li>
+            </ul>
         </div>
 
         <!-- GIORNO 8 -->
@@ -693,28 +988,78 @@
             <div class="day-header">
                 <h2>Giorno 8 - Sabato 14 Marzo</h2>
                 <p>📍 Da Hue a Hoi An via Passo delle Nuvole</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
-                    🧭 On the road | ⛰️ Hai Van Pass | 🏮 Hoi An
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 On the road | ⛰️ Hai Van Pass | 🏮 Hoi An by night
                 </p>
             </div>
-
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Mausoleo di Tu Duc, villaggio degli incensi Thuy Xuan, Pagoda Tu Hieu, laguna Lap An, Passo delle Nuvole e arrivo a Hoi An.
-            </div>
-
-            <p>
-                Dopo colazione visita al Mausoleo Imperiale di Tu Duc, gioiello architettonico della dinastia Nguyen.
-                Si prosegue verso il villaggio degli incensi Thuy Xuan, dove è possibile assistere e partecipare alla produzione artigianale dei bastoncini d’incenso.
-                Visita alla Pagoda Tu Hieu, una delle più antiche e maestose della dinastia Nguyen, legata al maestro zen Thich Nhat Hanh.
-                Nel pomeriggio partenza verso Hoi An con sosta alla laguna Lap An e al Passo delle Nuvole, da cui si gode una vista spettacolare sulla costa.
-                Arrivo a Hoi An, tempo libero per rilassarsi o esplorare la città antica delle lanterne, famosa per le lanterne colorate e l’architettura ben conservata.
-                Pernottamento in hotel 4★ a Hoi An.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
 
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245890.4!3d108.2!3d15.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421088e50e7a45%3A0x1fa830b0a17fd573!2sHoi%20An%2C%20Vietnam!5e0!3m2!1sit!2sit!4v1234567897" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>🚗 Scenic Drive:</strong> Una delle strade più belle del Vietnam! 3-4 ore con soste panoramiche incredibili.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 8: I Profumi e i Colori di Hue (colazione)</strong></p>
+				<p>Stamattina, dopo la colazione, partiamo per visitare il Mausoleo Imperiale di Tu Duc, un vero gioiello di architettura immerso nella storia della dinastia Nguyen.</p>
+				<p>Proseguiamo poi verso il villaggio degli incensi Thuy Xuan, dove potete cimentarvi nella produzione dell'incenso, un'arte tradizionale tramandata di generazione in generazione. Qui, gli abitanti utilizzano tecniche antiche per realizzare bastoncini profumati, un elemento essenziale per le cerimonie spirituali e quotidiane in Vietnam.</p>
+				<p>Vi sarà possibile osservare il processo, provare a realizzare alcuni bastoncini e apprezzare il significato culturale di questa pratica, che unisce spiritualità e artigianato.</p>
+				<p>Visitiamo poi la Pagoda di Tu Hieu, una delle più antiche e maestose della dinastia Nguyen, caratterizzata da un'architettura unica e un'atmosfera poetica. Qui risiede il maestro Zen Thich Nhat Hanh, famoso in tutto il mondo per i suoi insegnamenti sulla consapevolezza, etica globale e pace.</p>
+				<p>Dopo la visita, ci dirigiamo verso Hoi An, con una sosta panoramica alla laguna Lap An e al suggestivo Passo delle Nuvole, da cui si gode una vista spettacolare.</p>
+				<p>Arrivati a Hoi An, avete il resto della giornata libero per rilassarvi nel vostro hotel o esplorare la città antica delle lanterne in autonomia, famosa per le lanterne colorate e la sua architettura ben conservata.</p>
+				<p>Pernottamento a Hoi An in hotel 4 stelle.</p>
+			</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">⛰️</span>Tappe del Viaggio</h4>
+                    <ul>
+                        <li>Mausoleo imperatore Tu Duc</li>
+                        <li>Villaggio incensi Thuy Xuan</li>
+                        <li>Laguna Lap An (panorama incredibile)</li>
+                        <li>Passo Hai Van (Passo delle Nuvole)</li>
+                        <li>Lang Co Beach (spiaggia paradisiaca)</li>
+                        <li>Arrivo a Hoi An pomeriggio</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏮</span>Hoi An - Città Lanterne</h4>
+                    <ul>
+                        <li>Patrimonio UNESCO</li>
+                        <li>Centro storico pedonale</li>
+                        <li>Architettura cinese, giapponese, vietnamita</li>
+                        <li>Famosa per sartorie su misura</li>
+                        <li>Lanterne colorate ovunque</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🌙</span>Prima Sera</h4>
+                    <ul>
+                        <li>Tempo libero per esplorare</li>
+                        <li>Centro storico illuminato</li>
+                        <li>Lanterne galleggianti sul fiume</li>
+                        <li>Night market coloratissimo</li>
+                        <li>Cena in ristorante vista fiume</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">📸 Passo delle Nuvole (Hai Van Pass)</h3>
+            <p>Una delle strade costiere più spettacolari al mondo! Quota 496m con vista mozzafiato su oceano e montagne. Fermati al top per foto panoramiche a 360°. Se hai coraggio, guarda i motociclisti che sfrecciano sui tornanti!</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Villaggio degli Incensi</h3>
+            <p>A Thuy Xuan vedrai artigiani preparare incensi a mano, colorarli e farli asciugare al sole creando pattern geometrici incredibili. Perfetto per foto uniche e acquistare incensi naturali.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🍜 Cena a Hoi An - Primi Consigli</h3>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Morning Glory:</strong> Ristorante storico con cucina locale (chef famosa Trinh Diem Vy)</li>
+                <li><strong>Banh Mi Phuong:</strong> Il banh mi che mangiò Anthony Bourdain</li>
+                <li><strong>Cao Lau lungo il fiume:</strong> Piatto unico di Hoi An che non trovi altrove</li>
+            </ul>
         </div>
 
         <!-- GIORNO 9 -->
@@ -722,27 +1067,86 @@
             <div class="day-header">
                 <h2>Giorno 9 - Domenica 15 Marzo</h2>
                 <p>📍 My Son e centro storico di Hoi An</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
                     🧭 Cultura | 🛕 Templi Cham | 🏮 Centro storico
                 </p>
             </div>
+			
+			<div class="map-container">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61472.6!2d108.12!3d15.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140f7a8dc33ad47%3A0x5c4bfc9f12ff0591!2sMy%20Son%20Sanctuary!5e0!3m2!1sit!2sit!4v1700000009000"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					allowfullscreen>
+				</iframe>
+			</div>
+
 
             <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Mattina al Santuario di My Son, pomeriggio dedicato alla città antica di Hoi An e al Laboratorio della Seta.
+                <strong>🏛️ Giornata culturale:</strong> Mattina ai templi Cham nella giungla, pomeriggio esplorando la città vecchia di Hoi An.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 9: Scoperta del Santuario del Regno Cham e della città antica di Hoi An (colazione)</strong></p>
+				<p>Dopo la colazione, andiamo a visitare il Santuario di My Son. Oggi il complesso di My Son è uno dei patrimoni mondiali dell’UNESCO più famosi del Vietnam. Una visita al sito monumentale di My Son ci permetterà di scoprire ciò che resta dell’antica civiltà Champa, che un tempo regnava nel centro del Vietnam.</p>
+				<p>Quella di My Son è una delle migliori testimonianze della civiltà induista in Vietnam, ed i suoi monumenti sono unici.</p>
+				<p>Poi rientriamo a Hoi An. Il pomeriggio è dedicato alla scoperta della città antica di Hoi An, patrimonio UNESCO ricco di storia. Visiteremo il Tempio Phuc Kien, ammireremo l'iconico Ponte Giapponese e scopriremo le antiche abitazioni come la Casa Tan Ki e la Casa Antica Phung Hung. Non mancherà una visita al vibrante Mercato di Hoi An.</p>
+				<p>Poi la nostra visita continua con il Laboratorio della Seta, dove possiamo apprendere ogni fase di questo affascinante processo, dal baco da seta-bozzolo agli splendidi capi di seta.</p>
+				<p>Pernottamento ad Hoi An.</p>
+			</div>
+
+			
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🛕</span>Santuario My Son</h4>
+                    <ul>
+                        <li>Templi induisti Cham (IV-XIII sec)</li>
+                        <li>Patrimonio UNESCO</li>
+                        <li>Immerso nella giungla</li>
+                        <li>Architettura in mattoni rossi</li>
+                        <li>Atmosfera mistica e spirituale</li>
+                        <li>Spettacolo di danza Cham (mattina)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏮</span>Hoi An Centro Storico</h4>
+                    <ul>
+                        <li>Ponte Giapponese coperto (1593)</li>
+                        <li>Tempio Phuc Kien (assemblea cinese)</li>
+                        <li>Casa antica Tan Ky (200 anni)</li>
+                        <li>Mercato centrale coloratissimo</li>
+                        <li>Laboratorio seta tradizionale</li>
+                        <li>Botteghe artigiane</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🍴</span>Specialità Hoi An</h4>
+                    <ul>
+                        <li>Cao Lau (noodles unici)</li>
+                        <li>White Rose dumplings</li>
+                        <li>Banh Vac ("rose bianche")</li>
+                        <li>Mi Quang (noodles gialli)</li>
+                        <li>Banh Bao Banh Vac</li>
+                        <li>Com Ga (riso con pollo)</li>
+                    </ul>
+                </div>
             </div>
 
-            <p>
-                Dopo colazione partenza per il Santuario di My Son, uno dei patrimoni mondiali UNESCO più famosi del Vietnam.
-                Il complesso di My Son è una testimonianza unica della civiltà Champa e della tradizione induista nel paese.
-                Rientro a Hoi An nel pomeriggio, con visita alla città antica: Tempio Phuc Kien, Ponte Giapponese, case storiche Tan Ki e Phung Hung e il vivace mercato locale.
-                Il tour prosegue con il Laboratorio della Seta, dove si scopre l’intero processo dal baco da seta al capo finito.
-                Pernottamento a Hoi An.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Esperienze Autentiche a Hoi An</h3>
+            <p><strong>Tra Que Vegetable Village:</strong> Villaggio agricolo a 3 km dove contadini coltivano erbe aromatiche. Puoi fare tour in bici e cooking class in casa locale.</p>
+            <p><strong>Cam Thanh Coconut Village:</strong> Foresta di palme da cocco dove i pescatori locali ti portano in giro con le barche cesto rotonde (coracle boats) - esperienza divertentissima!</p>
+            <p><strong>Custom tailor suit/dress:</strong> Hoi An è famosa per abiti su misura in 24 ore a prezzi bassi. Prova: A Dong Silk, Yaly Couture o Kimmy Tailor.</p>
 
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61472.6!3d108.12!3d15.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140f7a8dc33ad47%3A0x5c4bfc9f12ff0591!2sMy%20Son%20Sanctuary!5e0!3m2!1sit!2sit!4v1234567898" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+            <h3 style="margin-top: 2rem; color: #DA251D;">🌙 Hoi An di Sera</h3>
+            <p>La magia di Hoi An esplode al tramonto quando migliaia di lanterne si accendono:</p>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Lantern Festival:</strong> 14° giorno del mese lunare (verifica se coincide!)</li>
+                <li><strong>Rilasciare lanterne sul fiume:</strong> Tradizione per buona fortuna</li>
+                <li><strong>Night Market:</strong> Bancarelle lungo il fiume An Hoi</li>
+                <li><strong>Streets to Love Bar:</strong> Rooftop per aperitivo con vista</li>
+            </ul>
         </div>
 
         <!-- GIORNO 10 -->
@@ -750,27 +1154,72 @@
             <div class="day-header">
                 <h2>Giorno 10 - Lunedì 16 Marzo</h2>
                 <p>📍 Beach Day a Cua Dai</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
                     🧭 Relax | 🏖️ Resort sul mare | 🏝️ Escursioni opzionali
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Trasferimento al resort 4★ sulla spiaggia di Cua Dai e giornata libera al mare, con possibilità di escursione all’Isola Cham.
-            </div>
-
-            <p>
-                Dopo colazione incontro con l’autista e trasferimento al resort sulla spiaggia di Cua Dai.
-                Giornata libera per rilassarsi in riva al mare.
-                Il resort mette a disposizione una macchina elettrica per accompagnare gli ospiti al centro di Hoi An (circa 15 minuti).
-                Presso la reception è possibile prenotare i biglietti per il motoscafo verso l’Isola Cham, con snorkeling tra acque trasparenti e coralli spettacolari.
-                Pernottamento a Cua Dai in resort 4★.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30736.3!3d108.35!3d15.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421a3b8bf05e4b%3A0x945a528239e5bb3d!2sCua%20Dai%20Beach!5e0!3m2!1sit!2sit!4v1234567899" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>🏖️ Relax totale:</strong> Giornata libera al resort sul mare. Dopo giorni intensi, meritato riposo in paradiso!
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 10: Giornata di relax sulla spiaggia (colazione)</strong></p>
+				<p>Dopo la colazione, in orario giusto incontrate l’autista per il trasferimento al resort sulla splendida spiaggia di Cua Dai. Godetevi un meritato tempo di relax in riva al mare. Pernottamento a Cua Dai in resort 4 stelle.</p>
+				<p>Il resort mette a disposizione una macchina elettrica per accompagnarvi al centro di Hoi An, un viaggio di circa 15 minuti, e presso la reception del resort è possibile prenotare i biglietti per il motoscafo per raggiungere l’incantevole Isola Cham, dove potrete immergervi nelle sue acque trasparenti e ammirare gli spettacolari coralli.</p>
+			</div>
+
+			
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🌊</span>Attività al Resort</h4>
+                    <ul>
+                        <li>Spiaggia privata di sabbia bianca</li>
+                        <li>Piscina infinity con vista mare</li>
+                        <li>Massaggi e spa (opzionale)</li>
+                        <li>Sport acquatici disponibili</li>
+                        <li>Relax totale sotto le palme</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏝️</span>Escursione Cham Islands</h4>
+                    <ul>
+                        <li>Tour giornaliero opzionale</li>
+                        <li>Snorkeling in acque cristalline</li>
+                        <li>Pranzo pesce fresco sull'isola</li>
+                        <li>Riserva marina protetta</li>
+                        <li>Spiagge paradisiache</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🚐</span>Navetta Hoi An</h4>
+                    <ul>
+                        <li>Shuttle gratuito per il centro</li>
+                        <li>Ultima sera a Hoi An</li>
+                        <li>Shopping finale lanterne</li>
+                        <li>Cena d'addio alla città</li>
+                        <li>Ultimi acquisti sartoria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Alternative al Beach Relax</h3>
+            <p><strong>An Bang Beach:</strong> Spiaggia più locale e trendy a 5 km, con beach club carini come Soul Kitchen e La Plage.</p>
+            <p><strong>Bike Tour nelle risaie:</strong> Molti resort offrono bici gratuite per esplorare i villaggi circostanti e le risaie verdi.</p>
+            <p><strong>Cooking Class:</strong> Alcuni resort hanno corsi di cucina vietnamita - ottimo modo per portare a casa le ricette!</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🍹 Dove Mangiare Vicino</h3>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Soul Kitchen (An Bang):</strong> Beach club con ottimo cibo fusion</li>
+                <li><strong>Rosie's Cafe:</strong> Gestito da australiani, brunch fantastico</li>
+                <li><strong>The Deck House:</strong> Vista mare, pesce freschissimo</li>
+            </ul>
         </div>
 
         <!-- GIORNO 11 -->
@@ -778,26 +1227,73 @@
             <div class="day-header">
                 <h2>Giorno 11 - Martedì 17 Marzo</h2>
                 <p>📍 Da Hoi An a Saigon</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
-                    🧭 Transito | ✈️ Da Nang → Saigon | 🌃 Metropoli
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    🧭 Transito | ✈️ Da Nang → Saigon | 🌃 Prima sera in metropoli
                 </p>
             </div>
-
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Giornata libera fino al trasferimento in aeroporto a Da Nang e volo per Saigon, con pernottamento in hotel 4★.
-            </div>
-
-            <p>
-                Dopo colazione giornata libera fino all’orario utile per il trasferimento con bus privato all’aeroporto di Da Nang.
-                Volo per Saigon e arrivo a Ho Chi Minh City, dove l’autista attende il gruppo per il trasferimento in hotel.
-                Pernottamento a Saigon in hotel 4★.
-                Ho Chi Minh City nacque come villaggio di pescatori khmer (Prei Nokor), in una zona paludosa abitata dal popolo Khmer, e divenne poi Saigon con lo stanziamento dei vietnamiti nel XVII secolo.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
 
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251038.3!3d106.65!3d10.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529292e8d3dd1%3A0xf15f5aad773c112b!2sHo%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sit!2sit!4v1234567900" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>✈️ Volo interno:</strong> Da Nang a Ho Chi Minh City (Saigon). Mattina libera, volo pomeriggio. Benvenuti nel caotico sud!
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 11: Rilassarti a Hoi An e partenza per Saigon (colazione)</strong></p>
+				<p>Dopo la colazione, giorno libero fino all’orario utile per il trasferimento all’aeroporto di Da Nang con nostro bus, dove vi aspetta il volo per Saigon.</p>
+				<p>Arrivati a Saigon, il nostro autista vi accoglie e con auto privata ci trasferiamo in hotel. Pernottamento a Saigon in hotel 4 stelle.</p>
+				<p>Ho Chi Minh City, nome corretto di Saigon, nasce come piccolo villaggio di pescatori, originariamente era conosciuta come Prei Nokor e si trovava in una zona paludosa abitata dal popolo Khmer. Con lo stanziamento dei vietnamiti nel XVII secolo, viene chiamata Saigon, come un fiume del sud del Vietnam che nasce nel sud-est della Cambogia.</p>
+			</div>
+
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🌅</span>Mattina Libera</h4>
+                    <ul>
+                        <li>Ultima colazione al mare</li>
+                        <li>Ultimi tuffi in piscina</li>
+                        <li>Check-out hotel</li>
+                        <li>Transfer aeroporto Da Nang</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏙️</span>Saigon - La Metropoli</h4>
+                    <ul>
+                        <li>Città più grande del Vietnam</li>
+                        <li>9 milioni di abitanti</li>
+                        <li>Energia frenetica 24/7</li>
+                        <li>Contrasto nord/sud</li>
+                        <li>Centro economico del paese</li>
+                        <li>Vita notturna vivacissima</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🌃</span>Prima Sera</h4>
+                    <ul>
+                        <li>Arrivo e sistemazione hotel</li>
+                        <li>Tempo libero esplorare</li>
+                        <li>Cena in zona Bui Vien</li>
+                        <li>Rooftop bar per skyline</li>
+                        <li>Pernottamento hotel 4 stelle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🍜 Prima Sera a Saigon - Dove Andare</h3>
+            <p><strong>Bui Vien Street:</strong> La "via dei backpackers", caotica e vivace con street food ovunque e bar aperti.</p>
+            <p><strong>Nguyen Hue Walking Street:</strong> Boulevard pedonale moderno, perfetto per passeggiata serale con edifici illuminati.</p>
+            <p><strong>Ben Thanh Night Market:</strong> Mercato notturno con cibo e souvenir (apre dopo le 18).</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🍹 Rooftop per Aperitivo</h3>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Saigon Saigon Rooftop Bar:</strong> Vista classica su Notre Dame e City Hall</li>
+                <li><strong>Chill Skybar:</strong> 26° piano, vista a 360°, DJ set</li>
+                <li><strong>Social Club Rooftop:</strong> Atmosfera più rilassata, giovane</li>
+            </ul>
         </div>
 
         <!-- GIORNO 12 -->
@@ -805,27 +1301,90 @@
             <div class="day-header">
                 <h2>Giorno 12 - Mercoledì 18 Marzo</h2>
                 <p>📍 Tunnels di Cu Chi e tour di Saigon</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
                     🧭 Storia | 🕳️ Tunnel Cu Chi | 🏛️ Tour città
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Visita ai Tunnel di Cu Chi e tour dei luoghi simbolo di Saigon, tra museo della guerra, cattedrale e mercato Ben Thanh.
-            </div>
-
-            <p>
-                Dopo la colazione partenza per i Tunnel di Cu Chi, vasta rete sotterranea di circa 250 km che testimonia l’ingegnosità e la resistenza dei Viet Cong durante la guerra.
-                La visita permette di vedere da vicino la struttura dei tunnel, i rifugi e le trappole del periodo bellico.
-                Rientro a Saigon e inizio del tour cittadino: Museo della Guerra del Vietnam, Cattedrale di Notre Dame (visita esterna, in restauro) e Ufficio Postale centrale in stile coloniale.
-                Ultima tappa al mercato Ben Thanh, perfetto per immergersi in sapori, colori e artigianato locali.
-                Pernottamento a Saigon in hotel 4★.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
-
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125519.2!3d106.5!3d11.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d5766e8c6bf5%3A0x6b4f61c8ad5f7e4e!2sCu%20Chi%20Tunnels!5e0!3m2!1sit!2sit!4v1234567901" allowfullscreen="" loading="lazy"></iframe>
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125519.2!2d106.50!3d11.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d5766e8c6bf5%3A0x6b4f61c8ad5f7e4e!2sCu%20Chi%20Tunnels!5e0!3m2!1sit!2sit!4v1700000012000"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					allowfullscreen>
+				</iframe>
+			</div>
+
+
+            <div class="highlight-box">
+                <strong>🎖️ Giornata storica:</strong> Mattina nei tunnel della Guerra del Vietnam, pomeriggio scoprendo la città moderna e i suoi contrasti.
             </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 12: La scoperta del Tunnel di Cu Chi e la città di Saigon (colazione)</strong></p>
+				<p>Dopo la colazione, ci attende un'esperienza intensa e storica: la visita ai Tunnel di Cu Chi. Questa vasta rete sotterranea, lunga circa 250 chilometri fino alla Cambogia, testimonia l'ingegnosità e la resistenza dei Viet Cong durante gli anni della guerra contro le forze del Vietnam del Sud e degli Stati Uniti.</p>
+				<p>Un viaggio sotto terra che ci permette di toccare con mano un pezzo significativo di storia.</p>
+				<p>Dopo la visita, rientriamo nella città di Saigon, iniziando un tour che abbraccia sia il patrimonio storico che la cultura contemporanea.</p>
+				<p>La prima tappa è il Museo della Guerra del Vietnam, dove potrai approfondire gli eventi che hanno segnato il Paese nel XX secolo.</p>
+				<p>Proseguiamo con la Cattedrale di Notre Dame (attualmente in fase di restauro, si visita la parte esterna), iconico edificio costruito dai francesi in epoca coloniale, e l'adiacente Ufficio Postale, capolavoro architettonico che testimonia l'influenza europea sulla città.</p>
+				<p>L'ultima tappa del nostro tour è il vivace mercato di Ben Thanh, perfetto per un'immersione nei sapori, nei colori e nell'artigianato locale.</p>
+				<p>Dopo la visita, torniamo in hotel. Pernottamento a Saigon in hotel 4 stelle.</p>
+			</div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🕳️</span>Tunnels Cu Chi</h4>
+                    <ul>
+                        <li>250 km di tunnel sotterranei</li>
+                        <li>Rifugio Viet Cong (guerra)</li>
+                        <li>Possibile entrare nei tunnel</li>
+                        <li>Trappole e bunker originali</li>
+                        <li>Video documentario storico</li>
+                        <li>Esperienza claustrofobica ma unica</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🏛️</span>Tour Saigon Pomeriggio</h4>
+                    <ul>
+                        <li>War Remnants Museum (forte impatto)</li>
+                        <li>Cattedrale Notre Dame (esterni)</li>
+                        <li>Ufficio Postale coloniale</li>
+                        <li>Palazzo della Riunificazione</li>
+                        <li>Mercato Ben Thanh</li>
+                        <li>Shopping souvenir</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🍲</span>Cibo di Saigon</h4>
+                    <ul>
+                        <li>Pho (versione del sud, più dolce)</li>
+                        <li>Banh Xeo (pancake vietnamita)</li>
+                        <li>Goi Cuon (involtini freschi)</li>
+                        <li>Com Tam (riso spezzato)</li>
+                        <li>Hu Tieu (noodles di riso)</li>
+                        <li>Ca Phe Sua Da (caffè freddo)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💡 Info Tunnel Cu Chi</h3>
+            <p><strong>Cosa aspettarsi:</strong> Esperienza intensa e storicamente significativa. I tunnel sono stretti (60x80 cm) e bui - non adatti a chi soffre di claustrofobia. Sono stati allargati per i turisti ma resta comunque stretto. Porta scarpe chiuse!</p>
+            <p><strong>Due siti:</strong> Ben Dinh (più turistico) e Ben Duoc (più autentico). Probabilmente visiterete Ben Dinh.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Saigon Off the Beaten Path</h3>
+            <p><strong>Apartment Cafe Culture:</strong> Saigon è famosa per caffè nascosti in vecchi palazzi francesi. Prova "The Cafe Apartment" (42 Nguyen Hue) - 9 piani di caffè e negozi vintage.</p>
+            <p><strong>Chinatown (Cho Lon):</strong> Quartiere cinese con templi incredibili come Thien Hau Pagoda e mercato Binh Tay - pochissimi turisti!</p>
+            <p><strong>Bach Dang Wharf:</strong> Passeggiata sul fiume al tramonto con vista sui grattacieli, frequentata solo da locals.</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🌃 Nightlife Saigon</h3>
+            <ul style="margin-left: 2rem;">
+                <li><strong>District 1:</strong> Centro con bar e club occidentali</li>
+                <li><strong>Pasteur Street Brewing:</strong> Migliore birrificio artigianale</li>
+                <li><strong>Acoustic Bar:</strong> Musica dal vivo locale</li>
+                <li><strong>Bui Vien Walking Street:</strong> Caos totale, esperienza unica</li>
+            </ul>
         </div>
 
         <!-- GIORNO 13 -->
@@ -833,28 +1392,80 @@
             <div class="day-header">
                 <h2>Giorno 13 - Giovedì 19 Marzo</h2>
                 <p>📍 Delta del Mekong - Tra mercati galleggianti e vita rurale</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
                     🧭 Natura | 🚤 Delta del Mekong | 🥥 Vita locale
                 </p>
             </div>
 
-            <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Escursione sul ramo Ham Luong del Mekong, con visite a laboratori, pranzo in casa locale e navigazione tra i canali.
-            </div>
-
-            <p>
-                Dopo la colazione partenza per il Delta del Mekong, con escursione lungo il fiume Ham Luong, uno dei principali affluenti del Mekong considerato il “più grande cesto di riso del paese”.
-                Si osserva la vita quotidiana lungo il fiume tra fattorie galleggianti per l’allevamento del pesce e fabbriche di mattoni tradizionali.
-                Visita a un laboratorio di lavorazione della noce di cocco per vedere come ogni parte del frutto viene trasformata in prodotto, e laboratorio familiare per la tessitura a mano delle stuoie di papiro.
-                Spostamento in tuk‑tuk verso una tipica casa locale dove viene servito un pranzo con piatti tradizionali del sud.
-                Nel pomeriggio navigazione in piccole barche lungo i canali per osservare la vita tranquilla degli abitanti del delta.
-                Rientro a Saigon e pernottamento in hotel 4★.
-            </p>
-            <p><strong>Pasti:</strong> colazione e pranzo.</p>
-
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d501661.7!3d105.8!3d10.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0881f9a732e1f%3A0x3916a227d0b95a64!2sMekong%20Delta!5e0!3m2!1sit!2sit!4v1234567902" allowfullscreen="" loading="lazy"></iframe>
             </div>
+
+            <div class="highlight-box">
+                <strong>🛶 Last adventure:</strong> Ultima grande esperienza del viaggio! Il Delta del Mekong è un mondo a parte - vita sull'acqua, mercati galleggianti, isole tropicali.
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 13: Il caos di Saigon e la pace del delta del Mekong (colazione e pranzo)</strong></p>
+				<p>Dopo la colazione, partiamo per il Delta del Mekong, dove ci aspetta una caratteristica escursione lungo l'Ham Luong, uno dei principali affluenti del fiume Mekong, che viene considerato “il più grande cesto di riso del paese”.</p>
+				<p>Osserviamo la vita quotidiana delle popolazioni che vivono lungo il fiume, con le loro fattorie galleggianti per l’allevamento del pesce e le fabbriche per la costruzione dei tradizionali mattoni fatti di argilla, carbone e torba.</p>
+				<p>Visitiamo anche uno dei tanti laboratori per la lavorazione della noce di cocco, per capire come ogni più piccola parte del frutto si trasforma in prodotto. Insieme ad una famiglia locale entriamo nel laboratorio per la tessitura a mano delle stuoie di papiro.</p>
+				<p>Proseguendo la giornata in modo pittoresco, ci sposteremo con un tuk-tuk verso una tipica casa locale dove ci verranno serviti deliziosi piatti della cucina del sud, offrendoci un assaggio autentico dei sapori e dei profumi che rendono questa regione unica e speciale.</p>
+				<p>Dopo pranzo, prendiamo la “gondola” e osserviamo con curiosità i piccoli canali e la vita tranquilla degli abitanti.</p>
+				<p>Il fiume Mekong è il settimo fiume più lungo del mondo; la sua lunghezza stimata è di circa 4.880 chilometri. Attraversa sei Stati: Cina, Birmania, Laos, Thailandia, Cambogia, Vietnam. Nasce nell’altopiano del Tibet e sfocia nel Mar Cinese Meridionale.</p>
+				<p>Al termine torniamo a Saigon. Pernottamento a Saigon in hotel 4 stelle.</p>
+			</div>
+
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🚤</span>Programma Delta</h4>
+                    <ul>
+                        <li>Navigazione fiume Ham Luong</li>
+                        <li>Visita isole verdi del delta</li>
+                        <li>Laboratori artigianali locali</li>
+                        <li>Produzione cocco e frutta</li>
+                        <li>Pranzo in casa locale incluso</li>
+                        <li>Navigazione canali secondari</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🥥</span>Esperienze Locali</h4>
+                    <ul>
+                        <li>Fabbrica caramelle cocco</li>
+                        <li>Apiario con miele locale</li>
+                        <li>Musica tradizionale dal vivo</li>
+                        <li>Assaggio frutta tropicale</li>
+                        <li>Degustazione snake wine</li>
+                        <li>Vita rurale autentica</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🍜</span>Pranzo Delta Style</h4>
+                    <ul>
+                        <li>Pesce d'acqua dolce fresco</li>
+                        <li>Elephant ear fish (ca tai tuong)</li>
+                        <li>Verdure locali del delta</li>
+                        <li>Riso appena raccolto</li>
+                        <li>Frutta tropicale freschissima</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">💎 Esperienze Uniche nel Delta</h3>
+            <p><strong>Canali stretti in sampan:</strong> La parte migliore! Navigare in barchette di legno attraverso canali strettissimi sotto tunnel di vegetazione - sembra un'altra dimensione.</p>
+            <p><strong>Mercato galleggiante di Cai Rang:</strong> Se partite molto presto (5-6 am) potreste visitare il vero mercato galleggiante dove barche vendono frutta all'ingrosso - esperienza autentica incredibile!</p>
+            <p><strong>Monkey Bridge:</strong> Ponticelli di bambù che attraversano i canali - i locali ci camminano tranquilli, voi... provate!</p>
+
+            <h3 style="margin-top: 2rem; color: #DA251D;">🌙 Ultima Sera a Saigon</h3>
+            <p>Tornate in città nel pomeriggio. È l'ultima sera del viaggio, godetevela!</p>
+            <ul style="margin-left: 2rem;">
+                <li><strong>Cena d'addio:</strong> Prova "Propaganda" (ristorante con poster vintage) o "Nha Hang Ngon" (villa coloniale con street food gourmet)</li>
+                <li><strong>Ultimo giro shopping:</strong> Ben Thanh Market per souvenir last minute</li>
+                <li><strong>Rooftop finale:</strong> Brinda al viaggio al Chill Skybar con vista sulla città illuminata</li>
+            </ul>
         </div>
 
         <!-- GIORNO 14 -->
@@ -862,31 +1473,80 @@
             <div class="day-header">
                 <h2>Giorno 14 - Venerdì 20 Marzo</h2>
                 <p>📍 Partenza dal Vietnam</p>
-                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9%;">
-                    ✈️ Rientro | 🧳 Ultimi dettagli | 🎉 Saluti
+                <p style="margin-top:0.5rem; font-size:0.95rem; opacity:0.9;">
+                    ✈️ Rientro | 🧳 Ultimi dettagli | 🎉 Saluti al Vietnam
                 </p>
             </div>
 
+            <div class="map-container">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3!2d106.66!3d10.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529b6a8f3b38d%3A0x3b0f0015fc0e6e9!2sTan%20Son%20Nhat%20International%20Airport!5e0!3m2!1sit!2sit!4v1700000014000"
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+					allowfullscreen>
+				</iframe>
+			</div>
+
+
             <div class="highlight-box">
-                <strong>Programma ufficiale:</strong> Tempo libero per gli ultimi acquisti e trasferimento all’aeroporto per il volo di rientro.
+                <strong>✈️ Volo di ritorno:</strong> Partenza alle 08:55 da Ho Chi Minh. Arrivate presto in aeroporto (3 ore prima per voli internazionali).
+            </div>
+			
+			<div class="pdf-program">
+				<p><strong>Giorno 14: Salutiamo il Vietnam (colazione)</strong></p>
+				<p>Nel nostro ultimo giorno, tempo libero per fare gli acquisti e scoprire ancora la città.</p>
+				<p>Il viaggio si conclude con il trasferimento all’aeroporto, pronti per il volo di rientro, il cuore pieno di ricordi indimenticabili di questo viaggio attraverso la storia, la cultura e la vita quotidiana del Vietnam.</p>
+			</div>
+
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="emoji">🏨</span>Mattina</h4>
+                    <ul>
+                        <li>Sveglia molto presto (5:30-6:00)</li>
+                        <li>Colazione veloce in hotel</li>
+                        <li>Check-out e transfer aeroporto</li>
+                        <li>Arrivo aeroporto SGN entro le 6:00</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">✈️</span>Volo Ritorno</h4>
+                    <ul>
+                        <li>08:55 - Partenza da Saigon</li>
+                        <li>12:55 - Arrivo Doha (3h transito)</li>
+                        <li>15:55 - Partenza da Doha</li>
+                        <li>20:10 - Arrivo Milano Malpensa</li>
+                        <li>Stessa sera a casa! 🏠</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4><span class="emoji">🎁</span>Ultimi Acquisti</h4>
+                    <ul>
+                        <li>Caffè vietnamita (duty free)</li>
+                        <li>Cioccolato Marou</li>
+                        <li>Lacquerware (oggetti laccati)</li>
+                        <li>Souvenir dell'aeroporto</li>
+                    </ul>
+                </div>
             </div>
 
-            <p>
-                Ultimo giorno con tempo libero per gli acquisti o per scoprire ancora la città.
-                Il viaggio si conclude con il trasferimento all’aeroporto per il volo di rientro, con il cuore pieno di ricordi di questo viaggio tra storia, cultura e vita quotidiana del Vietnam.
-            </p>
-            <p><strong>Pasti:</strong> colazione.</p>
+            <h3 style="margin-top: 2rem; color: #DA251D;">💡 Consigli Ultimo Giorno</h3>
+            <p><strong>Preparati la sera prima:</strong> Valigia chiusa, documenti pronti, sveglia impostata. Il volo è presto!</p>
+            <p><strong>Valuta rimasta:</strong> Spendi i dong vietnamiti rimasti prima di imbarco o cambiali in aeroporto (tasso non ottimale).</p>
+            <p><strong>Check bagaglio:</strong> 30 kg inclusi, ma controlla dimensioni e peso per evitare sorprese.</p>
 
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3!3d106.66!3d10.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529b6a8f3b38d%3A0x3b0f0015fc0e6e9!2sTan%20Son%20Nhat%20International%20Airport!5e0!3m2!1sit!2sit!4v1234567903" allowfullscreen="" loading="lazy"></iframe>
+            <div class="highlight-box" style="margin-top: 2rem; background: #d4edda; border-left-color: #28a745;">
+                <strong>🎉 Fine del viaggio!</strong> Sei stato dall'antica capitale Hanoi alle moderne torri di Saigon, hai navigato tra isole da sogno e tunnel di guerra, hai mangiato street food eccezionale e conosciuto la gentilezza vietnamita. Arrivederci Vietnam! 🇻🇳❤️
             </div>
         </div>
 
-        <!-- SEZIONE CONSIGLI (TUO CONTENUTO ORIGINALE) -->
+        <!-- SEZIONE CONSIGLI -->
         <div id="consigli" class="tips-section tab-pane">
             <h2 style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">💡 CONSIGLI DI VIAGGIO</h2>
             <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Tutto quello che devi sapere per prepararti al meglio</p>
-        
+
             <div class="tips-grid">
                 <div class="tip-card">
                     <h4>🌡️ Clima Marzo</h4>
@@ -894,7 +1554,7 @@
                     <p><strong>Centro (Hue, Hoi An):</strong> 22-28°C, tempo ideale, sole prevalente</p>
                     <p><strong>Sud (Saigon, Mekong):</strong> 26-35°C, caldo e umido, stagione secca</p>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>👕 Come Vestirsi</h4>
                     <p><strong>Abbigliamento base:</strong></p>
@@ -907,7 +1567,7 @@
                         <li>Giacca antipioggia/k-way</li>
                     </ul>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>🛕 Per Templi/Pagode</h4>
                     <p><strong>Dress code richiesto:</strong></p>
@@ -918,7 +1578,7 @@
                         <li>Togliere scarpe all'ingresso</li>
                     </ul>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>🎒 Checklist Valigia</h4>
                     <p><strong>Essenziali:</strong></p>
@@ -934,7 +1594,7 @@
                         <li>Cappello/berretto</li>
                     </ul>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>💊 Salute</h4>
                     <p><strong>Vaccinazioni:</strong> Non obbligatorie dall'Italia</p>
@@ -943,7 +1603,7 @@
                     <p><strong>Kit base:</strong> Antidiarroico, antidolorifico, cerotti, disinfettante</p>
                     <p><strong>Assicurazione:</strong> Obbligatoria (medico-bagaglio)</p>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>💰 Soldi</h4>
                     <p><strong>Valuta:</strong> Dong Vietnamita (VND)</p>
@@ -953,19 +1613,19 @@
                     <p><strong>ATM:</strong> Diffusi, commissioni ~3-5%</p>
                     <p><strong>Mance:</strong> Non obbligatorie ma apprezzate</p>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>📱 Connessione</h4>
                     <p><strong>SIM locale:</strong> Viettel o Mobifone in aeroporto (10-15€ per 30 giorni, dati illimitati)</p>
                     <p><strong>WiFi:</strong> Disponibile in tutti gli hotel</p>
                     <p><strong>App utili:</strong></p>
                     <ul style="margin-top: 0.5rem;">
-                        <li>Google Maps</li>
+                        <li>Google Maps (funziona benissimo)</li>
                         <li>Google Translate</li>
                         <li>Grab (taxi/food delivery)</li>
                     </ul>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>🚕 Trasporti</h4>
                     <p><strong>Inclusi nel tour:</strong> Tutti i transfer</p>
@@ -973,161 +1633,68 @@
                     <ul style="margin-top: 0.5rem;">
                         <li>Grab (come Uber, affidabile)</li>
                         <li>Taxi ufficiali (Vinasun, Mai Linh)</li>
-                        <li>Moto-taxi</li>
+                        <li>Moto-taxi (avventuroso!)</li>
                         <li>Cyclo (risciò) per brevi tratte</li>
                     </ul>
                     <p><strong>Attraversare strada:</strong> Cammina lento e costante, le moto ti schiveranno!</p>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>🍜 Cibo e Acqua</h4>
                     <p><strong>Acqua:</strong> Bottiglie incluse nel tour, mai dal rubinetto</p>
-                    <p><strong>Street food:</strong> Ok se cucinato al momento</p>
+                    <p><strong>Street food:</strong> Generalmente sicuro se cucinato al momento</p>
                     <p><strong>Scegli posti:</strong> Affollati da locali = buon segno</p>
-                    <p><strong>Allergie:</strong> Attenzione alle arachidi</p>
+                    <p><strong>Allergie:</strong> Comunica sempre (molti piatti con arachidi)</p>
                     <p><strong>Piccante:</strong> Chiedi "không cay" (non piccante)</p>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>🗣️ Lingua Base</h4>
                     <p><strong>Frasi utili:</strong></p>
                     <ul style="margin-top: 0.5rem;">
-                        <li>Xin chào = Ciao</li>
-                        <li>Cảm ơn = Grazie</li>
-                        <li>Bao nhiêu? = Quanto costa?</li>
-                        <li>Không cay = Non piccante</li>
-                        <li>Nước = Acqua</li>
-                        <li>Toilet ở đâu? = Dov'è il bagno?</li>
+                        <li>Xin chào (sin ciao) = Ciao</li>
+                        <li>Cảm ơn (gam on) = Grazie</li>
+                        <li>Bao nhiêu? (bao niu) = Quanto costa?</li>
+                        <li>Không cay (khom cai) = Non piccante</li>
+                        <li>Nước (nuoc) = Acqua</li>
+                        <li>Toilet ở đâu? (toilet o dau) = Dov'è il bagno?</li>
                     </ul>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>🎭 Cultura</h4>
                     <p><strong>Rispetto:</strong></p>
                     <ul style="margin-top: 0.5rem;">
                         <li>Togliere scarpe entrando in case/templi</li>
-                        <li>Non toccare la testa delle persone</li>
-                        <li>Coprirsi nei luoghi sacri</li>
+                        <li>Non toccare testa delle persone</li>
+                        <li>Coprirsi adeguatamente nei luoghi sacri</li>
                         <li>Chiedere prima di fotografare persone</li>
-                        <li>Non puntare i piedi verso Buddha</li>
+                        <li>Non puntare piedi verso Buddha</li>
                     </ul>
                 </div>
-        
+
                 <div class="tip-card">
                     <h4>📸 Fotografia</h4>
-                    <p><strong>Cosa fotografare:</strong> Tutto, il Vietnam è fotogenico</p>
+                    <p><strong>Cosa fotografare:</strong> Tutto! Il Vietnam è fotogenicissimo</p>
                     <p><strong>Attenzione:</strong> Chiedi permesso per ritratti ravvicinati</p>
-                    <p><strong>Droni:</strong> Serve permesso, alcune zone vietate</p>
+                    <p><strong>Droni:</strong> Permesso necessario, zone militari vietate</p>
                     <p><strong>Best time:</strong> Alba e tramonto per luce perfetta</p>
-                    <p><strong>Backup:</strong> Schede extra e power bank</p>
+                    <p><strong>Backup:</strong> Porta schede memoria extra e power bank</p>
                 </div>
             </div>
-        
+
             <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.2); border-radius: 8px;">
                 <h3 style="text-align: center; margin-bottom: 1rem;">⚠️ Safety Tips</h3>
                 <ul style="columns: 2; column-gap: 2rem;">
                     <li>Vietnam è sicuro, criminalità bassa</li>
-                    <li>Attenzione ai borseggiatori nelle zone turistiche</li>
+                    <li>Attenzione borseggiatori in zone turistiche</li>
                     <li>Zaino davanti nelle folle</li>
                     <li>Fotocopia passaporto sempre con te</li>
                     <li>Numeri emergenza salvati in telefono</li>
                     <li>Bevi solo acqua imbottigliata</li>
-                    <li>Attenzione al traffico caotico</li>
+                    <li>Attenzione al traffico (caotico!)</li>
                     <li>Proteggi documenti dall'umidità</li>
                 </ul>
-            </div>
-        </div>
-
-        <!-- SEZIONE QUOTA & INFO DAL PDF -->
-        <div id="quota" class="section tab-pane">
-            <div class="day-header">
-                <h2>💶 Quota di partecipazione & Info utili</h2>
-                <p>Dettagli economici, cosa include, cosa non include e informazioni pratiche.</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4><span class="emoji">✅</span>La quota include</h4>
-                    <ul>
-                        <li>Sistemazione in camera doppia standard in hotel 4★ per 12 notti:
-                            2 notti ad Hanoi, 1 a Mai Chau, 1 a Ninh Binh, 2 a Hoi An, 2 a Hue, 1 a Cua Dai, 3 a Saigon.
-                        </li>
-                        <li>1 notte su nave da crociera 4★ in cabina doppia con bagno privato nella Baia di Ha Long (Lan Ha).</li>
-                        <li>Pasti come menzionati nel programma giorno per giorno.</li>
-                        <li>Guide parlanti italiano.</li>
-                        <li>Autista privato e pullman privato come da programma.</li>
-                        <li>Biglietti d’ingresso per i luoghi indicati nel programma.</li>
-                        <li>Battelli privati come descritti nel programma.</li>
-                        <li>Bottiglie d’acqua durante tutto il viaggio.</li>
-                        <li>2 voli interni: Hanoi–Hue e Da Nang–Saigon (Vietnam Airlines, classe economica).</li>
-                        <li>Accompagnatore “Compagni di Viaggio Cercasi” dall’Italia.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h4><span class="emoji">❌</span>La quota non include</h4>
-                    <ul>
-                        <li>Biglietto aereo internazionale.</li>
-                        <li>Mance ed extra personali.</li>
-                        <li>Ingressi ai siti e pasti ove non specificati.</li>
-                        <li>Supplemento per early check‑in e late check‑out.</li>
-                        <li>Assicurazione medico‑bagaglio obbligatoria.</li>
-                        <li>Eventuale tassa di soggiorno da pagare in loco.</li>
-                        <li>Tutto ciò che non è chiaramente indicato nella sezione “la quota include”.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 2rem; color:#264653;">ℹ️ Info utili</h3>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4><span class="emoji">🛂</span>Documenti & Visto</h4>
-                    <ul>
-                        <li>Passaporto con validità residua di almeno 6 mesi e una pagina libera per il timbro.</li>
-                        <li>Dal 15 agosto 2023 cittadini italiani esentati dal visto per soggiorni fino a 45 giorni con ingresso singolo.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h4><span class="emoji">💉</span>Salute</h4>
-                    <ul>
-                        <li>Nessuna vaccinazione obbligatoria per chi arriva dall’Italia.</li>
-                        <li>Vaccino febbre gialla richiesto solo se si proviene da Paesi a rischio (non l’Italia).</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h4><span class="emoji">🧳</span>Note operative</h4>
-                    <ul>
-                        <li>Abbigliamento per templi e pagode: spalle e gambe sotto il ginocchio coperte.</li>
-                        <li>Il programma può subire modifiche per eventi imprevedibili, con eventuale riprogrammazione delle escursioni.</li>
-                        <li>In caso di overbooking alberghiero, sistemazione alternativa di pari o superiore categoria senza costi aggiuntivi.</li>
-                        <li>I nomi definitivi delle strutture saranno comunicati nei giorni precedenti la partenza.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 2rem; color:#264653;">📍 Punto d’incontro & Chat</h3>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4><span class="emoji">📍</span>Punto d’incontro</h4>
-                    <ul>
-                        <li>Se il volo viene acquistato autonomamente, è necessario comunicare gli operativi 15 giorni prima dell’arrivo per organizzare i transfer da/per aeroporto.</li>
-                        <li>L’accompagnatore ti aspetterà direttamente in hotel per l’inizio dell’esperienza.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h4><span class="emoji">💬</span>Chat di gruppo</h4>
-                    <ul>
-                        <li>Sarà attivata una chat operativa per condividere i dettagli del tour.</li>
-                        <li>Obiettivo: creare connessioni tra i partecipanti prima della partenza.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="highlight-box" style="margin-top: 1.5rem;">
-                <strong>Emozione da vivere:</strong> da Hanoi alla Baia di Halong, dai campi di riso di Mai Chau alla Cittadella di Hue, dalle lanterne di Hoi An al delta del Mekong: un viaggio che vale più di un tesoro.
             </div>
         </div>
 
