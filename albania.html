@@ -37,34 +37,35 @@
     }
 
     .nav {
-        position: sticky;
-        top: 0;
         background: white;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         z-index: 1000;
         overflow-x: auto;
         white-space: nowrap;
+        position: sticky;
+        top: 0;
     }
 
-    .nav a {
+    .nav button {
         display: inline-block;
         padding: 0.5rem 1rem;
-        margin: 0 0.25rem;
+        margin: 0 0.25rem 0.25rem 0;
         color: #1b4965;
-        text-decoration: none;
+        background: #f5f5f5;
         border-radius: 20px;
+        border: none;
+        cursor: pointer;
         transition: all 0.3s;
         font-size: 0.9rem;
-        background: #f5f5f5;
     }
 
-    .nav a:hover {
+    .nav button:hover {
         background: #1b4965;
         color: white;
     }
 
-    .nav a.attivo {
+    .nav button.attivo {
         background: #1b4965;
         color: white;
     }
@@ -75,7 +76,9 @@
         padding: 2rem 1rem;
     }
 
-    .section {
+    .section,
+    .flight-section,
+    .tips-section {
         background: white;
         margin-bottom: 2rem;
         padding: 2rem;
@@ -86,10 +89,6 @@
     .flight-section {
         background: linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
         color: white;
-        margin-bottom: 2rem;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .flight-card {
@@ -209,7 +208,7 @@
     }
 
     .highlight-box {
-        background: #fff3cd;
+        background: #ddd;
         border-left: 4px solid #ffc107;
         padding: 1rem;
         margin: 1rem 0;
@@ -217,6 +216,55 @@
         font-size: 0.95rem;
     }
 
+    .tips-section {
+        background: linear-gradient(135deg, #118ab2 0%, #06d6a0 100%);
+        color: white;
+    }
+
+    .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .tip-card {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.2);
+        font-size: 0.95rem;
+    }
+
+    .tip-card h4 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .emoji {
+        font-size: 1.3rem;
+        margin-right: 0.4rem;
+    }
+
+    .link-list a {
+        color: #1b4965;
+        text-decoration: none;
+    }
+
+    .link-list a:hover {
+        text-decoration: underline;
+    }
+
+    /* tab */
+    .tab-section {
+        display: none;
+    }
+    .tab-section.attivo {
+        display: block;
+    }
+
+    /* toggle interni (Elbasan/Tirana, Riviera/Rientro) */
     .toggle-group {
         margin: 1.5rem 0;
         padding: 1rem;
@@ -258,49 +306,6 @@
         display: block;
     }
 
-    .tips-section {
-        background: linear-gradient(135deg, #118ab2 0%, #06d6a0 100%);
-        color: white;
-        padding: 2rem;
-        border-radius: 10px;
-        margin-bottom: 2rem;
-    }
-
-    .tips-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-
-    .tip-card {
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
-        padding: 1.5rem;
-        border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.2);
-        font-size: 0.95rem;
-    }
-
-    .tip-card h4 {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-    }
-
-    .emoji {
-        font-size: 1.3rem;
-        margin-right: 0.4rem;
-    }
-
-    .link-list a {
-        color: #1b4965;
-        text-decoration: none;
-    }
-
-    .link-list a:hover {
-        text-decoration: underline;
-    }
-
     @media (max-width: 600px) {
         .header h1 {
             font-size: 2rem;
@@ -312,233 +317,269 @@
     </style>
 </head>
 <body>
-    <header class="header" id="top">
-        <h1>Albania 2026</h1>
-        <p>Tour 13–23 Marzo • Tirana, Shkodër, Berat, Gjirokastër, Riviera</p>
-    </header>
+<header class="header">
+    <h1>Albania 2026</h1>
+    <p>Tour 13–23 Marzo • Tirana, Shkodër, Berat, Gjirokastër, Riviera</p>
+</header>
 
-    <nav class="nav">
-        <a href="#voli" class="attivo">Voli</a>
-        <a href="#overview">Overview</a>
-        <a href="#giorno-1">Giorno 1 - Tirana</a>
-        <a href="#giorno-2">Giorno 2 - Dita e Verës</a>
-        <a href="#giorno-3">Giorno 3 - Shkodër</a>
-        <a href="#giorno-4">Giorno 4 - Shkodër</a>
-        <a href="#giorno-5">Giorno 5 - Berat</a>
-        <a href="#giorno-6">Giorno 6 - Berat/Natura</a>
-        <a href="#giorno-7">Giorno 7 - Gjirokastër</a>
-        <a href="#giorno-8">Giorno 8 - Blue Eye</a>
-        <a href="#giorno-9">Giorno 9 - Riviera / Rientro</a>
-        <a href="#giorno-10">Giorno 10 - Tirana & Nevruz</a>
-        <a href="#note">Note & Link</a>
-    </nav>
+<nav class="nav">
+    <button data-target="voli" class="attivo">Voli</button>
+    <button data-target="overview">Overview</button>
+    <button data-target="giorno-1">Giorno 1 - Tirana</button>
+    <button data-target="giorno-2">Giorno 2 - Dita e Verës</button>
+    <button data-target="giorno-3">Giorno 3 - Shkodër</button>
+    <button data-target="giorno-4">Giorno 4 - Shkodër Natura</button>
+    <button data-target="giorno-5">Giorno 5 - Berat</button>
+    <button data-target="giorno-6">Giorno 6 - Berat Natura</button>
+    <button data-target="giorno-7">Giorno 7 - Gjirokastër</button>
+    <button data-target="giorno-8">Giorno 8 - Blue Eye</button>
+    <button data-target="giorno-9">Giorno 9 - Riviera / Rientro</button>
+    <button data-target="giorno-10">Giorno 10 - Tirana & Nevruz</button>
+    <button data-target="note">Note & Link</button>
+</nav>
 
-    <main class="container">
+<main class="container">
 
-        <!-- VOLI -->
-        <section id="voli" class="flight-section">
-            <h2>Voli</h2>
+    <!-- VOLI -->
+    <section id="voli" class="flight-section tab-section attivo">
+        <h2>Voli</h2>
 
-            <div class="flight-card">
-                <h3>Andata</h3>
-                <div class="flight-leg">
-                    <div class="flight-info">
-                        <strong>FR9692</strong>
-                        <span>Bari (BRI) → Tirana (TIA)</span>
+        <div class="flight-card">
+            <h3>Andata</h3>
+            <div class="flight-leg">
+                <div class="flight-info">
+                    <strong>FR9692</strong>
+                    <span>Bari (BRI) → Tirana (TIA)</span>
+                </div>
+                <div class="flight-details">
+                    <div><strong>Data:</strong> 13/03/2026</div>
+                    <div><strong>Partenza:</strong> 10:10</div>
+                    <div><strong>Arrivo:</strong> 11:10</div>
+                    <div><strong>Compagnia:</strong> Ryanair</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flight-card">
+            <h3>Ritorno</h3>
+            <div class="flight-leg">
+                <div class="flight-info">
+                    <strong>FR9693</strong>
+                    <span>Tirana (TIA) → Bari (BRI)</span>
+                </div>
+                <div class="flight-details">
+                    <div><strong>Data:</strong> 23/03/2026</div>
+                    <div><strong>Partenza:</strong> 16:00</div>
+                    <div><strong>Arrivo:</strong> 17:00</div>
+                    <div><strong>Compagnia:</strong> Ryanair</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            Considera circa 1 ora per uscire dall’aeroporto di Tirana e almeno 2 ore di anticipo al ritorno.
+        </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section id="overview" class="section tab-section">
+        <div class="day-header">
+            <h2>Overview del viaggio</h2>
+            <p>10 notti tra città storiche, natura e feste tradizionali (Dita e Verës, Nevruz).</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Albania overview map (Tirana) -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048867.408651907!2d18.2!3d41.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503108677b9e0b%3A0xa1e42e4bea67276e!2sAlbania!5e0!3m2!1sit!2sit!4v1700000000000"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>📍 Itinerario sintetico</h4>
+                <ul>
+                    <li>13–15: Tirana (arrivo + Dita e Verës con doppia opzione)</li>
+                    <li>15–17: Shkodër (città, lago, castello, possibili escursioni)</li>
+                    <li>17–19: Berat (città UNESCO + nature day trip)</li>
+                    <li>19–21: Gjirokastër + Blue Eye</li>
+                    <li>21–22: Riviera / rientro panoramico verso Tirana</li>
+                    <li>22–23: Tirana (Nevruz) + partenza</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h4>🥾 Stile del viaggio</h4>
+                <ul>
+                    <li>Mix tra cultura urbana e paesaggi naturali</li>
+                    <li>Trekking facili/moderati solo dove ne vale la pena</li>
+                    <li>Molte passeggiate in città storiche e viewpoint</li>
+                    <li>Flessibilità per meteo e umore (es. 14 marzo doppia scelta)</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h4>🚗 Spostamenti</h4>
+                <ul>
+                    <li>Tirana ⇄ Shkodër, Shkodër → Berat, Berat → Gjirokastër</li>
+                    <li>Gjirokastër → Riviera/Tirana con sosta Llogara/Vlorë</li>
+                    <li>Auto a noleggio oppure tour organizzati a seconda della giornata</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 1 – TIRANA -->
+    <section id="giorno-1" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 1 – 13 marzo • Arrivo a Tirana</h2>
+            <p>Primo contatto con la città: Skanderbeg, Piramide, Blloku.</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Tirana center -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29909.881179883174!2d19.802!3d41.327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503102018a2c9d%3A0x40092af10653790!2sTirana!5e0!3m2!1sit!2sit!4v1700000000001"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🕒 Programma indicativo</h4>
+                <ul>
+                    <li>Mattina: arrivo a TIA, trasferimento in hotel</li>
+                    <li>Pomeriggio: Piazza Skanderbeg, Et’hem Bey, Museo storico (facoltativo)</li>
+                    <li>Tardo pomeriggio/sera: Piramide e cena/drink a Blloku</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📍 Luoghi chiave</h4>
+                <ul class="link-list">
+                    <li><a href="https://maps.app.goo.gl/eQhZz5s2Smd8njJX7" target="_blank">Skanderbeg Square</a></li>
+                    <li><a href="https://maps.app.goo.gl/3aX7wzQhXyJA1ZfB9" target="_blank">Et’hem Bey Mosque</a></li>
+                    <li><a href="https://maps.app.goo.gl/zfse2JgTV7VdHQqm7" target="_blank">National History Museum</a></li>
+                    <li><a href="https://maps.app.goo.gl/4bJtVxB3KZ7pVf3q9" target="_blank">Pyramid of Tirana</a></li>
+                    <li><a href="https://maps.app.goo.gl/AbXjA3kPNk2YL4oJ8" target="_blank">Blloku district</a></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🎟️ Idee tour</h4>
+                <ul class="link-list">
+                    <li><a href="https://www.getyourguide.com/tirana-l273/tirana-walking-tours-l145220/" target="_blank">
+                        Walking tour Tirana (GetYourGuide)
+                    </a></li>
+                    <li><a href="https://www.getyourguide.com/tirana-l273/tirana-city-highlights-tour-t477005/" target="_blank">
+                        City highlights in mezza giornata
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 2 – DITA E VERËS -->
+    <section id="giorno-2" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 2 – 14 marzo • Dita e Verës</h2>
+            <p>Festa di primavera: Elbasan “tradizionale” o Tirana “cittadina”.</p>
+        </div>
+
+        <div class="toggle-group">
+            <div class="toggle-buttons">
+                <button class="attivo" data-target="#opzione-elbasan">Opzione A – Elbasan</button>
+                <button data-target="#opzione-tirana">Opzione B – Tirana</button>
+            </div>
+
+            <!-- ELBASAN -->
+            <div id="opzione-elbasan" class="toggle-content attivo">
+                <div class="map-container">
+                    <!-- Elbasan -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29436.82440722552!2d20.055!3d41.117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135032f46993bc41%3A0xe34152e5995afadf!2sElbasan!5e0!3m2!1sit!2sit!4v1700000000002"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🔥 Elbasan – Festa tradizionale</h4>
+                        <ul>
+                            <li>Mattina: bus/auto Tirana → Elbasan (circa 1 h)</li>
+                            <li>Centro storico, castello, piazze piene per Dita e Verës</li>
+                            <li>Ballokume, bancarelle, musica, fuochi e atmosfera di festa</li>
+                            <li>Pomeriggio/sera: ancora festa e rientro a Tirana</li>
+                        </ul>
                     </div>
-                    <div class="flight-details">
-                        <div><strong>Data:</strong> 13/03/2026</div>
-                        <div><strong>Partenza:</strong> 10:10</div>
-                        <div><strong>Arrivo:</strong> 11:10</div>
-                        <div><strong>Compagnia:</strong> Ryanair</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flight-card">
-                <h3>Ritorno</h3>
-                <div class="flight-leg">
-                    <div class="flight-info">
-                        <strong>FR9693</strong>
-                        <span>Tirana (TIA) → Bari (BRI)</span>
-                    </div>
-                    <div class="flight-details">
-                        <div><strong>Data:</strong> 23/03/2026</div>
-                        <div><strong>Partenza:</strong> 16:00</div>
-                        <div><strong>Arrivo:</strong> 17:00</div>
-                        <div><strong>Compagnia:</strong> Ryanair</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                Nota: orari locali. Considerare circa 1 ora per arrivo/uscita dall'aeroporto di Tirana e 2 ore di anticipo in partenza.
-            </div>
-        </section>
-
-        <!-- OVERVIEW -->
-        <section id="overview" class="section">
-            <div class="day-header">
-                <h2>Overview del viaggio</h2>
-                <p>10 notti tra città storiche, natura e feste tradizionali (Dita e Verës, Nevruz).</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>📍 Itinerario sintetico</h4>
-                    <ul>
-                        <li>13–15: Tirana (arrivo + Dita e Verës con doppia opzione)</li>
-                        <li>15–17: Shkodër (città, lago, castello, possibili escursioni)</li>
-                        <li>17–19: Berat (città UNESCO + nature day trip)</li>
-                        <li>19–21: Gjirokastër + Blue Eye</li>
-                        <li>21–22: Riviera / rientro panoramico verso Tirana</li>
-                        <li>22–23: Tirana (Nevruz) + partenza</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h4>🥾 Stile del viaggio</h4>
-                    <ul>
-                        <li>Mix tra cultura urbana e paesaggi naturali</li>
-                        <li>Trekking facili / moderati solo dove ne vale la pena</li>
-                        <li>Molte passeggiate in città storiche e viewpoint panoramici</li>
-                        <li>Flessibilità per meteo e umore (es. 14 marzo doppia scelta)</li>
-                    </ul>
-                </div>
-
-                <div class="info-card">
-                    <h4>🚗 Spostamenti</h4>
-                    <ul>
-                        <li>Valutazione noleggio auto vs tour organizzati (GetYourGuide, locali)</li>
-                        <li>Tratte principali: Tirana ⇄ Shkodër, Shkodër → Berat, Berat → Gjirokastër, Gjirokastër → Riviera/Tirana</li>
-                        <li>Possibilità di day trip guidati (Berat, Blue Eye, Theth condizioni permettendo)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIORNO 1 -->
-        <section id="giorno-1" class="section">
-            <div class="day-header">
-                <h2>Giorno 1 – 13 marzo • Arrivo a Tirana</h2>
-                <p>Primo contatto con la città: Skanderbeg, Piramide, Blloku e prime esplorazioni leggere.</p>
-            </div>
-        
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>🕒 Programma indicativo</h4>
-                    <ul>
-                        <li>Mattina: arrivo a TIA, trasferimento in hotel (taxi ufficiale o bus Rinas Express)</li>
-                        <li>Pomeriggio: Piazza Skanderbeg, Museo storico (facoltativo), Et’hem Bey, Piramide</li>
-                        <li>Sera: cena e drink a Blloku</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4>📍 Luoghi chiave</h4>
-                    <ul class="link-list">
-                        <li><a href="https://maps.app.goo.gl/eQhZz5s2Smd8njJX7" target="_blank">Skanderbeg Square</a></li>
-                        <li><a href="https://maps.app.goo.gl/3aX7wzQhXyJA1ZfB9" target="_blank">Et’hem Bey Mosque</a></li>
-                        <li><a href="https://maps.app.goo.gl/zfse2JgTV7VdHQqm7" target="_blank">National History Museum</a></li>
-                        <li><a href="https://maps.app.goo.gl/4bJtVxB3KZ7pVf3q9" target="_blank">Pyramid of Tirana</a></li>
-                        <li><a href="https://maps.app.goo.gl/AbXjA3kPNk2YL4oJ8" target="_blank">Blloku district</a></li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4>🎟️ Idee tour & attività</h4>
-                    <ul class="link-list">
-                        <li><a href="https://www.getyourguide.com/tirana-l273/tirana-walking-tours-l145220/" target="_blank">Tirana walking tour (GetYourGuide)</a></li>
-                        <li><a href="https://www.getyourguide.com/tirana-l273/tirana-city-highlights-tour-t477005/" target="_blank">City highlights in mezza giornata</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIORNO 2 - DITA E VERES CON DOPPIA OPZIONE -->
-        <section id="giorno-2" class="section">
-            <div class="day-header">
-                <h2>Giorno 2 – 14 marzo • Dita e Verës</h2>
-                <p>Festa di primavera: opzione Elbasan “tradizionale” o Tirana “cittadina”.</p>
-            </div>
-        
-            <div class="toggle-group">
-                <div class="toggle-buttons">
-                    <button class="attivo" data-target="#opzione-elbasan">Opzione A – Elbasan</button>
-                    <button data-target="#opzione-tirana">Opzione B – Tirana</button>
-                </div>
-        
-                <!-- ELBASAN -->
-                <div id="opzione-elbasan" class="toggle-content attivo">
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <h4>🔥 Elbasan – Festa tradizionale</h4>
-                            <ul>
-                                <li>Mattina: bus o auto Tirana → Elbasan (circa 1 h)</li>
-                                <li>Giro nel centro storico, zona castello e piazza principale</li>
-                                <li>Ballokume, bancarelle, musica, fuochi e atmosfera di festa</li>
-                                <li>Pomeriggio/sera: ancora festa e rientro a Tirana</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <h4>📍 Link utili Elbasan</h4>
-                            <ul class="link-list">
-                                <li><a href="https://maps.app.goo.gl/pu3jbwbw9GVuNqQb6" target="_blank">Centro di Elbasan</a></li>
-                                <li><a href="https://maps.app.goo.gl/bQJ5kikK4iKm8NuQ6" target="_blank">Castello di Elbasan</a></li>
-                                <li><a href="https://it.wikipedia.org/wiki/Dita_e_Ver%C3%ABs" target="_blank">Dita e Verës – info (IT)</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="highlight-box">
-                        Modalità “sagra”: più folla e folklore, perfetto se hai voglia di immergerti nella festa popolare e nello street food tipico.
-                    </div>
-                </div>
-        
-                <!-- TIRANA -->
-                <div id="opzione-tirana" class="toggle-content">
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <h4>🏙️ Tirana – Festa in città</h4>
-                            <ul>
-                                <li>Mattina: Bunk’Art 1 + Dajti Ekspres (meteo permettendo)</li>
-                                <li>Pomeriggio: Skanderbeg, Murat Toptani, Grand Park</li>
-                                <li>Sera: eventi, concerti e locali più vivi per la festa</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <h4>📍 Link utili Tirana</h4>
-                            <ul class="link-list">
-                                <li><a href="https://maps.app.goo.gl/5eVMLPGYfWRgY8Zq6" target="_blank">Bunk’Art 1</a></li>
-                                <li><a href="https://maps.app.goo.gl/EYxe8tM9rprN3D6Z9" target="_blank">Dajti Ekspres (stazione funivia)</a></li>
-                                <li><a href="https://maps.app.goo.gl/g6X5tMp3YE5g9NvL7" target="_blank">Shëtitorja Murat Toptani</a></li>
-                                <li><a href="https://maps.app.goo.gl/PGtuy2Qe8qF4jGp58" target="_blank">Grand Park / Lago artificiale</a></li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <h4>🎟️ Eventi</h4>
-                            <ul class="link-list">
-                                <li><a href="https://lovealbania.al/events-in-tirana/" target="_blank">Calendario eventi a Tirana</a></li>
-                                <li><a href="https://www.getyourguide.com/tirana-l273/bunkart-2-tickets-t230316/" target="_blank">Bunk’Art 2 ticket & tour</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="highlight-box">
-                        Modalità “città”: più comoda, meno ressa estrema, facile da combinare con visite culturali e serata nei locali.
+                    <div class="info-card">
+                        <h4>📍 Link utili Elbasan</h4>
+                        <ul class="link-list">
+                            <li><a href="https://maps.app.goo.gl/pu3jbwbw9GVuNqQb6" target="_blank">Centro di Elbasan</a></li>
+                            <li><a href="https://maps.app.goo.gl/bQJ5kikK4iKm8NuQ6" target="_blank">Castello di Elbasan</a></li>
+                            <li><a href="https://it.wikipedia.org/wiki/Dita_e_Ver%C3%ABs" target="_blank">Dita e Verës – info</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- GIORNO 3 -->
-        <section id="giorno-3" class="section">
+                <div class="highlight-box">
+                    Modalità “sagra”: tanta folla e folklore, perfetto se hai voglia di festa di popolo e street food.
+                </div>
+            </div>
+
+            <!-- TIRANA -->
+            <div id="opzione-tirana" class="toggle-content">
+                <div class="map-container">
+                    <!-- Tirana BunkArt + Dajti area (generale Tirana) -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29909.881179883174!2d19.802!3d41.327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503102018a2c9d%3A0x40092af10653790!2sTirana!5e0!3m2!1sit!2sit!4v1700000000003"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🏙️ Tirana – Festa in città</h4>
+                        <ul>
+                            <li>Mattina: Bunk’Art 1 + Dajti Ekspres (meteo permettendo)</li>
+                            <li>Pomeriggio: Skanderbeg, Murat Toptani, Grand Park</li>
+                            <li>Sera: eventi, concerti e locali più vivi per la festa</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>📍 Link utili Tirana</h4>
+                        <ul class="link-list">
+                            <li><a href="https://maps.app.goo.gl/5eVMLPGYfWRgY8Zq6" target="_blank">Bunk’Art 1</a></li>
+                            <li><a href="https://maps.app.goo.gl/EYxe8tM9rprN3D6Z9" target="_blank">Dajti Ekspres (stazione)</a></li>
+                            <li><a href="https://maps.app.goo.gl/g6X5tMp3YE5g9NvL7" target="_blank">Shëtitorja Murat Toptani</a></li>
+                            <li><a href="https://maps.app.goo.gl/PGtuy2Qe8qF4jGp58" target="_blank">Grand Park / Lago artificiale</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🎟️ Eventi</h4>
+                        <ul class="link-list">
+                            <li><a href="https://lovealbania.al/events-in-tirana/" target="_blank">Calendario eventi a Tirana</a></li>
+                            <li><a href="https://www.getyourguide.com/tirana-l273/bunkart-2-tickets-t230316/" target="_blank">Bunk’Art 2 ticket & tour</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    Modalità “città”: più comoda, meno ressa estrema, facile da combinare con visite culturali e serata nei locali.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 3 – SHKODËR -->
+    <section id="giorno-3" class="section tab-section">
         <div class="day-header">
             <h2>Giorno 3 – 15 marzo • Tirana → Shkodër</h2>
-            <p>Trasferimento a nord e prime esplorazioni tra centro storico e atmosfera rilassata.</p>
+            <p>Trasferimento a nord e prime esplorazioni del centro storico.</p>
         </div>
-    
+
+        <div class="map-container">
+            <!-- Shkodër -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29686.7279988338!2d19.497!3d42.068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1351ef3e5fd944cd%3A0xb63d3e7c33dcb7a5!2sShkod%C3%ABr!5e0!3m2!1sit!2sit!4v1700000000004"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
         <div class="info-grid">
             <div class="info-card">
                 <h4>🚗 Spostamento</h4>
                 <ul>
-                    <li>Tirana → Shkodër (circa 2 h in auto o bus)</li>
+                    <li>Tirana → Shkodër (circa 2 ore in auto/bus)</li>
                     <li>Check-in in guesthouse/hotel</li>
                     <li>Passeggiata nel centro storico pedonale nel tardo pomeriggio</li>
                 </ul>
@@ -546,251 +587,366 @@
             <div class="info-card">
                 <h4>📍 Luoghi chiave</h4>
                 <ul class="link-list">
-                    <li><a href="https://maps.app.goo.gl/k4Nj4a6LjP2FMywW7" target="_blank">Shkodër Old Town (Rruga Kole Idromeno)</a></li>
-                    <li><a href="https://maps.app.goo.gl/Eqf2zvnq9fAG4g8E7" target="_blank">Sheshi Demokracia (piazza principale)</a></li>
-                    <li><a href="https://maps.app.goo.gl/6KuXjv5eNoGvU3ux7" target="_blank">Kafene e vjetra & bar della zona</a></li>
+                    <li><a href="https://maps.app.goo.gl/k4Nj4a6LjP2FMywW7" target="_blank">Rruga Kole Idromeno</a></li>
+                    <li><a href="https://maps.app.goo.gl/Eqf2zvnq9fAG4g8E7" target="_blank">Sheshi Demokracia</a></li>
                 </ul>
             </div>
             <div class="info-card">
                 <h4>💡 Note pratiche</h4>
                 <ul>
-                    <li>Possibilità di noleggiare bici per il lago il giorno dopo</li>
-                    <li>Valuta in serata info locali su eventuali escursioni a Theth</li>
+                    <li>Valuta noleggio bici per il lago il giorno dopo</li>
+                    <li>Chiedi info aggiornate su escursioni a Theth (meteo/neve)</li>
                 </ul>
             </div>
         </div>
-        </section>
+    </section>
 
-        <!-- GIORNO 4 -->
-<section id="giorno-4" class="section">
-    <div class="day-header">
-        <h2>Giorno 4 – 16 marzo • Shkodër & natura</h2>
-        <p>Castello di Rozafa, lago di Shkodër e, se ti va, una camminata facile.</p>
-    </div>
-
-    <div class="info-grid">
-        <div class="info-card">
-            <h4>🕒 Programma base</h4>
-            <ul>
-                <li>Mattina: visita al Castello di Rozafa (vista panoramica)</li>
-                <li>Pomeriggio: Shiroka e passeggiata sul lago di Shkodër</li>
-                <li>Sera: rientro in città, cena e giro in centro</li>
-            </ul>
+    <!-- GIORNO 4 – SHKODËR NATURA -->
+    <section id="giorno-4" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 4 – 16 marzo • Shkodër & natura</h2>
+            <p>Castello di Rozafa, lago di Shkodër e camminata facile.</p>
         </div>
-        <div class="info-card">
-            <h4>📍 Link utili</h4>
-            <ul class="link-list">
-                <li><a href="https://maps.app.goo.gl/GFvB7R9bGVDx8hmp9" target="_blank">Rozafa Castle</a></li>
-                <li><a href="https://maps.app.goo.gl/BzSgbN8g5dJg7o5N9" target="_blank">Shiroka (sul lago di Shkodër)</a></li>
-                <li><a href="https://www.komoot.com/guide/59559/hiking-in-shkoder" target="_blank">Percorsi facili a Shkodër (Komoot)</a></li>
-            </ul>
+
+        <div class="map-container">
+            <!-- Shkodër + Rozafa + Shiroka area (approx) -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14834.525995558874!2d19.455!3d42.055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1351ef63c01c675d%3A0x40c2a9772c7f1849!2sRozafa%20Castle!5e0!3m2!1sit!2sit!4v1700000000005"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="info-card">
-            <h4>🥾 Opzione extra: escursione verso Theth</h4>
-            <ul class="link-list">
-                <li>Solo se meteo/strade ok (informarsi in loco)</li>
-                <li><a href="https://www.tripadvisor.com/Attractions-g303166-Activities-c63-zfq2706054-Shkoder_Shkoder_County.html" target="_blank">
-                    Tour & day trip Shkodër → Theth (Tripadvisor)
-                </a></li>
-                <li><a href="https://www.getyourguide.com/shkoder-l2828/hiking-tc71/" target="_blank">
-                    Hiking & tour da Shkodër (GetYourGuide)
-                </a></li>
-            </ul>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🕒 Programma base</h4>
+                <ul>
+                    <li>Mattina: visita al Castello di Rozafa (vista panoramica)</li>
+                    <li>Pomeriggio: Shiroka e passeggiata sul lago di Shkodër</li>
+                    <li>Sera: rientro in città, cena e giro in centro</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📍 Link utili</h4>
+                <ul class="link-list">
+                    <li><a href="https://maps.app.goo.gl/GFvB7R9bGVDx8hmp9" target="_blank">Rozafa Castle</a></li>
+                    <li><a href="https://maps.app.goo.gl/BzSgbN8g5dJg7o5N9" target="_blank">Shiroka (Lago di Shkodër)</a></li>
+                    <li><a href="https://www.komoot.com/guide/59559/hiking-in-shkoder" target="_blank">Percorsi facili (Komoot)</a></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🥾 Opzione extra: Theth</h4>
+                <ul class="link-list">
+                    <li>Solo se meteo/strade ok, decidere in loco</li>
+                    <li><a href="https://www.tripadvisor.com/Attractions-g303166-Activities-c63-zfq2706054-Shkoder_Shkoder_County.html" target="_blank">
+                        Day trip Shkodër → Theth (Tripadvisor)
+                    </a></li>
+                    <li><a href="https://www.getyourguide.com/shkoder-l2828/hiking-tc71/" target="_blank">
+                        Hiking & tour da Shkodër (GetYourGuide)
+                    </a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-        
-        <!-- GIORNO 5 -->
+    <!-- GIORNO 5 – BERAT -->
+    <section id="giorno-5" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 5 – 17 marzo • Shkodër → Berat</h2>
+            <p>Verso la città delle mille finestre.</p>
+        </div>
 
-        <!-- GIORNO 6 -->
-        <section id="giorno-6" class="section">
-            <div class="day-header">
-                <h2>Giorno 6 – 18 marzo • Berat città & natura</h2>
-                <p>Castello, viewpoint e, se vuoi, gita a Bogovë/Osum.</p>
+        <div class="map-container">
+            <!-- Berat -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30322.83496918167!2d19.932!3d40.706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b6151d8c5f9c9%3A0x6d248ca3a2750353!2sBerat!5e0!3m2!1sit!2sit!4v1700000000006"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🚗 Spostamento</h4>
+                <ul>
+                    <li>Shkodër → Berat (via Tirana, 4–5 ore circa con pause)</li>
+                    <li>Check-in a Berat</li>
+                    <li>Prima passeggiata nei quartieri Mangalem e Gorica</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📍 Luoghi chiave</h4>
+                <ul class="link-list">
+                    <li><a href="https://maps.app.goo.gl/fiPOLa5tGfRvb1ah7" target="_blank">Mangalem (zona storica)</a></li>
+                    <li><a href="https://maps.app.goo.gl/H1YA6pg8vv9Lrjbv7" target="_blank">Gorica Bridge</a></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🎟️ Walking tour</h4>
+                <ul class="link-list">
+                    <li><a href="https://www.guruwalk.com/berat" target="_blank">Free walking tour Berat (GuruWalk)</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 6 – BERAT NATURA -->
+    <section id="giorno-6" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 6 – 18 marzo • Berat & natura</h2>
+            <p>Castello, viewpoint e, se vuoi, Bogovë/Osum Canyon.</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Berat Castle area -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7599.717056992688!2d19.939!3d40.7085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b615a9db1f9ff%3A0x7b19f6f7cc0d2b96!2sBerat%20Castle!5e0!3m2!1sit!2sit!4v1700000000007"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🏛️ Città & cultura</h4>
+                <ul>
+                    <li>Mattina: salita al Castello di Berat</li>
+                    <li>Visita Onufri Museum e punti panoramici sulla valle</li>
+                    <li>Pomeriggio: passeggiata tra Mangalem e Gorica</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>🌿 Opzione natura – Bogovë & Osum</h4>
+                <ul>
+                    <li>Day trip con tour organizzato (camminata moderata)</li>
+                    <li>Cascata di Bogovë e canyon del fiume Osum</li>
+                    <li>Valutare meteo e livello acqua</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📍 Link utili</h4>
+                <ul class="link-list">
+                    <li><a href="https://maps.app.goo.gl/2fo5e3TQsQ5QGQ4U8" target="_blank">Bogovë Waterfall</a></li>
+                    <li><a href="https://maps.app.goo.gl/QLLrJrEWw2iGZx7H8" target="_blank">Osum Canyon</a></li>
+                    <li><a href="https://www.peek.com/berat-berat-county-albania/r0ypd9j/berats-march-weekend-a-journey-through-time-and-nature/ar079mdpx" target="_blank">
+                        Esempio tour natura da Berat
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 7 – GJIROKASTËR -->
+    <section id="giorno-7" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 7 – 19 marzo • Berat → Gjirokastër</h2>
+            <p>Verso la città di pietra, con prime esplorazioni serali.</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Gjirokastër -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30664.20111082869!2d20.130!3d40.074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b23d15c6c9c7d%3A0x5b1c44cc979f4098!2sGjirokaster!5e0!3m2!1sit!2sit!4v1700000000008"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🚗 Spostamento</h4>
+                <ul>
+                    <li>Berat → Gjirokastër (4–5 ore circa con sosta)</li>
+                    <li>Check-in e breve giro nel bazar storico</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📍 Luoghi chiave</h4>
+                <ul class="link-list">
+                    <li><a href="https://maps.app.goo.gl/pn8AgMm3c7o1x1ox5" target="_blank">Gjirokaster Old Bazaar</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 8 – BLUE EYE -->
+    <section id="giorno-8" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 8 – 20 marzo • Gjirokastër & Blue Eye</h2>
+            <p>Castello, vicoli in pietra e Syri i Kaltër.</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Blue Eye area -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30918.96245348132!2d20.117!3d39.927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b1d4b8e7bf73b%3A0x5dfc55c2c7183762!2sSyri%20i%20Kalt%C3%ABr!5e0!3m2!1sit!2sit!4v1700000000009"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🏛️ Mattina – Gjirokastër</h4>
+                <ul>
+                    <li>Visita al Castello di Gjirokastër</li>
+                    <li>Giro nel bazar e nelle vie in pietra</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>💧 Pomeriggio – Blue Eye</h4>
+                <ul>
+                    <li>Escursione al Syri i Kaltër (auto o tour)</li>
+                    <li>Breve camminata dal parcheggio alla sorgente</li>
+                    <li>Rientro a Gjirokastër o proseguimento verso Sarandë</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>📍 Link utili</h4>
+                <ul class="link-list">
+                    <li><a href="https://maps.app.goo.gl/3LQufyXRn5x6U12F9" target="_blank">Gjirokastër Castle</a></li>
+                    <li><a href="https://maps.app.goo.gl/y8y3qLfwxt2VShrR7" target="_blank">Syri i Kaltër (Blue Eye)</a></li>
+                    <li><a href="https://www.getyourguide.com/saranda-l89811/blue-eye-tours-tc11220/" target="_blank">
+                        Blue Eye tour da Gjirokastër/Sarandë
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIORNO 9 – RIVIERA / RIENTRO -->
+    <section id="giorno-9" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 9 – 21 marzo • Riviera / Rientro panoramico</h2>
+            <p>Assaggio di costa e Passo di Llogara, oppure rientro tranquillo verso Tirana.</p>
+        </div>
+
+        <div class="toggle-group">
+            <div class="toggle-buttons">
+                <button class="attivo" data-target="#opzione-riviera">Opzione Riviera</button>
+                <button data-target="#opzione-rientro">Opzione Rientro diretto</button>
             </div>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>🏛️ Cultura & città</h4>
-                    <ul>
-                        <li>Mattina: salita al Castello di Berat e visita dell’Onufri Museum</li>
-                        <li>Pomeriggio: free walking tour o esplorazione libera dei quartieri storici</li>
-                    </ul>
+            <div id="opzione-riviera" class="toggle-content attivo">
+                <div class="map-container">
+                    <!-- Riviera / Llogara -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30756.90229192741!2d19.615!3d40.212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13453d3116e05a95%3A0x3c43c8d5e93cb7d5!2sLlogara%20Pass!5e0!3m2!1sit!2sit!4v1700000000010"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="info-card">
-                    <h4>🌿 Opzione natura</h4>
-                    <ul>
-                        <li>Day trip Bogovë Waterfall + Osum Canyon (tour organizzato)</li>
-                        <li>Trekking moderato, paesaggi molto scenici</li>
-                        <li>Valutare meteo e livello acqua</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIORNO 7 -->
-        <section id="giorno-7" class="section">
-            <div class="day-header">
-                <h2>Giorno 7 – 19 marzo • Berat → Gjirokastër</h2>
-                <p>Verso la città di pietra, con prime esplorazioni serali.</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>🚗 Spostamento</h4>
-                    <ul>
-                        <li>Berat → Gjirokastër (4–5 ore circa, pausa en route)</li>
-                        <li>Check-in e breve giro nel bazar</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4>📍 Link utili</h4>
-                    <ul class="link-list">
-                        <li><a href="https://maps.app.goo.gl/" target="_blank">Gjirokaster Old Bazaar</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIORNO 8 -->
-        <section id="giorno-8" class="section">
-            <div class="day-header">
-                <h2>Giorno 8 – 20 marzo • Gjirokastër & Blue Eye</h2>
-                <p>Castello, vicoli in pietra e la sorgente turchese del Syri i Kaltër.</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>🏛️ Mattina</h4>
-                    <ul>
-                        <li>Visita al Castello di Gjirokastër</li>
-                        <li>Giro nel bazar, case ottomane e viewpoint cittadini</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4>💧 Pomeriggio – Blue Eye</h4>
-                    <ul>
-                        <li>Escursione al Syri i Kaltër (auto o tour)</li>
-                        <li>Breve camminata dal parcheggio alla sorgente</li>
-                        <li>Rientro a Gjirokastër o proseguimento verso Sarandë (se preferisci)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- GIORNO 9 -->
-        <section id="giorno-9" class="section">
-            <div class="day-header">
-                <h2>Giorno 9 – 21 marzo • Riviera / Rientro panoramico</h2>
-                <p>Assaggio di costa e Passo di Llogara, oppure rientro tranquillo verso Tirana.</p>
-            </div>
-
-            <div class="toggle-group">
-                <div class="toggle-buttons">
-                    <button class="attivo" data-target="#opzione-riviera">Opzione Riviera</button>
-                    <button data-target="#opzione-rientro">Opzione Rientro diretto</button>
-                </div>
-
-                <div id="opzione-riviera" class="toggle-content attivo">
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <h4>🌊 Riviera sud soft</h4>
-                            <ul>
-                                <li>Gjirokastër → Sarandë / Himarë</li>
-                                <li>Passeggiate sul lungomare, spiagge tranquille</li>
-                                <li>Sosta panoramica al Passo di Llogara</li>
-                            </ul>
-                        </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🌊 Riviera sud soft</h4>
+                        <ul>
+                            <li>Gjirokastër → Sarandë / Himarë</li>
+                            <li>Passeggiate sul lungomare e spiagge tranquille</li>
+                            <li>Sosta panoramica al Passo di Llogara</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>📍 Link utili</h4>
+                        <ul class="link-list">
+                            <li><a href="https://maps.app.goo.gl/z7z8o8qXbA26hP2A7" target="_blank">Sarandë</a></li>
+                            <li><a href="https://maps.app.goo.gl/Pf3qJpe9MtPto7Yw9" target="_blank">Himarë</a></li>
+                            <li><a href="https://maps.app.goo.gl/C5xJqL8yT3L9M4Cm7" target="_blank">Llogara Pass</a></li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
-                <div id="opzione-rientro" class="toggle-content">
-                    <div class="info-grid">
-                        <div class="info-card">
-                            <h4>🚗 Rientro verso Tirana</h4>
-                            <ul>
-                                <li>Gjirokastër → Tirana con soste (es. Vlorë, Llogara)</li>
-                                <li>Arrivo a Tirana nel tardo pomeriggio/sera</li>
-                            </ul>
-                        </div>
+            <div id="opzione-rientro" class="toggle-content">
+                <div class="map-container">
+                    <!-- Gjirokastër → Tirana generic -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30295.589655418022!2d19.802!3d41.327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503102018a2c9d%3A0x40092af10653790!2sTirana!5e0!3m2!1sit!2sit!4v1700000000011"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🚗 Rientro verso Tirana</h4>
+                        <ul>
+                            <li>Gjirokastër → Tirana con eventuale sosta a Vlorë / Llogara</li>
+                            <li>Arrivo a Tirana nel tardo pomeriggio/sera</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- GIORNO 10 -->
-        <section id="giorno-10" class="section">
-            <div class="day-header">
-                <h2>Giorno 10 – 22 marzo • Tirana & Nevruz</h2>
-                <p>Ultimo giorno pieno tra celebrazioni Bektashi, parchi e quartieri.</p>
+    <!-- GIORNO 10 – TIRANA & NEVRUZ -->
+    <section id="giorno-10" class="section tab-section">
+        <div class="day-header">
+            <h2>Giorno 10 – 22 marzo • Tirana & Nevruz</h2>
+            <p>Ultimo giorno pieno tra celebrazioni, parchi e quartieri.</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Tirana again -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30295.589655418022!2d19.802!3d41.327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503102018a2c9d%3A0x40092af10653790!2sTirana!5e0!3m2!1sit!2sit!4v1700000000012"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>🕊️ Nevruz</h4>
+                <ul>
+                    <li>Possibile visita al quartier generale Bektashi (se eventi)</li>
+                    <li>Passeggiate in città e al Grand Park</li>
+                    <li>Ultima serata a Blloku</li>
+                </ul>
             </div>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4>🕊️ Nevruz</h4>
-                    <ul>
-                        <li>Possibile visita al quartier generale Bektashi (se eventi)</li>
-                        <li>Passeggiate in città e Grand Park</li>
-                        <li>Ultima serata a Blloku</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4>✈️ 23 marzo – Partenza</h4>
-                    <ul>
-                        <li>Mattina libera a Tirana</li>
-                        <li>Trasferimento in aeroporto nel primo pomeriggio</li>
-                    </ul>
-                </div>
+            <div class="info-card">
+                <h4>✈️ 23 marzo – Partenza</h4>
+                <ul>
+                    <li>Mattina libera a Tirana</li>
+                    <li>Trasferimento in aeroporto nel primo pomeriggio</li>
+                </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- NOTE & LINK -->
-        <section id="note" class="tips-section">
-            <h2>Note, link utili e TODO</h2>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h4><span class="emoji">🗺️</span>Mappe da inserire</h4>
-                    <p>Per ogni giorno puoi sostituire i link Maps generici con link precisi a luoghi, hotel e ristoranti. Valuta di aggiungere una iframe con la mappa del giro totale.</p>
-                </div>
-                <div class="tip-card">
-                    <h4><span class="emoji">📌</span>Tour organizzati</h4>
-                    <p>Aggiungi link specifici GetYourGuide / Viator per: day trip da Shkodër, Bogovë & Osum da Berat, Blue Eye, eventuali walking tour in Tirana, Berat e Gjirokastër.</p>
-                </div>
-                <div class="tip-card">
-                    <h4><span class="emoji">📝</span>Personalizzazioni</h4>
-                    <p>Puoi duplicare/sezionare i giorni se cambi l’ordine (es. più costa, meno montagna), mantenendo la logica dei toggle per le “opzioni” a seconda dell’umore o del meteo.</p>
-                </div>
+    <!-- NOTE -->
+    <section id="note" class="tips-section tab-section">
+        <h2>Note, link utili e TODO</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4><span class="emoji">🗺️</span>Mappe</h4>
+                <p>Puoi sostituire gli URL degli iframe con mappe personalizzate (es. con layer dei tuoi alloggi, ristoranti, ecc.).</p>
             </div>
-        </section>
-    </main>
+            <div class="tip-card">
+                <h4><span class="emoji">📌</span>Tour organizzati</h4>
+                <p>Aggiungi link specifici per tour che deciderai di prenotare (Shkodër → Theth, Bogovë & Osum, Blue Eye, walking tour urbani).</p>
+            </div>
+            <div class="tip-card">
+                <h4><span class="emoji">📝</span>Personalizzazioni</h4>
+                <p>Se cambi numero di notti in una città, puoi duplicare/accorpare tab mantenendo la logica attuale di “blocco per giorno”.</p>
+            </div>
+        </div>
+    </section>
 
-    <script>
-    // Evidenzia nav attiva a click
-    const navLinks = document.querySelectorAll('.nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.forEach(l => l.classList.remove('attivo'));
-            link.classList.add('attivo');
+</main>
+
+<script>
+// TAB: gestione bottoni nav
+const tabButtons = document.querySelectorAll('.nav button');
+const tabSections = document.querySelectorAll('.tab-section');
+
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        tabButtons.forEach(b => b.classList.remove('attivo'));
+        btn.classList.add('attivo');
+        tabSections.forEach(sec => {
+            if (sec.id === targetId) {
+                sec.classList.add('attivo');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                sec.classList.remove('attivo');
+            }
         });
     });
+});
 
-    // Toggle dei contenuti (Elbasan/Tirana, Riviera/Rientro)
-    const toggleButtons = document.querySelectorAll('.toggle-buttons button');
-    toggleButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const parent = btn.closest('.toggle-group');
-            const buttons = parent.querySelectorAll('.toggle-buttons button');
-            const contents = parent.querySelectorAll('.toggle-content');
+// Toggle interni (Elbasan/Tirana, Riviera/Rientro)
+const toggleButtons = document.querySelectorAll('.toggle-buttons button');
+toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const parent = btn.closest('.toggle-group');
+        const buttons = parent.querySelectorAll('.toggle-buttons button');
+        const contents = parent.querySelectorAll('.toggle-content');
 
-            buttons.forEach(b => b.classList.remove('attivo'));
-            btn.classList.add('attivo');
+        buttons.forEach(b => b.classList.remove('attivo'));
+        btn.classList.add('attivo');
 
-            contents.forEach(c => c.classList.remove('attivo'));
-            const target = parent.querySelector(btn.dataset.target);
-            if (target) target.classList.add('attivo');
-        });
+        contents.forEach(c => c.classList.remove('attivo'));
+        const target = parent.querySelector(btn.dataset.target);
+        if (target) target.classList.add('attivo');
     });
-    </script>
+});
+</script>
 </body>
 </html>
