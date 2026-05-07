@@ -599,7 +599,7 @@
                         visibile: row[visibileIdx] && row[visibileIdx].trim().toLowerCase() === 'true' ? true : false
                     };
                     
-                    if (sections[product.sezione]) {
+                    if (sections[product.sezione] && product.visibile) {
                         sections[product.sezione].push(product);
                     }
                 }
@@ -618,7 +618,8 @@
             // Funzione per ottenere l'icona della sezione
             function getSectionIcon(name) {
                 const icons = {
-                    'Sfizi e gastronomia': '🍿', 
+                    'Sfizi': '🍟', 
+                    'Gastronomia': '🍽️', 
                     'Hamburger': '🍔', 
                     'Pinse': '🍕', 
                     'Dolci': '🍰', 
